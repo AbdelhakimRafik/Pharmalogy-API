@@ -1,0 +1,21 @@
+{
+ "name": "pharmalogy",
+ "version": "1.0.0",
+ "description": "Application to manage pharmacies",
+ "main": "index.js",
+ "scripts": {
+  "start": "electron ./build/",
+  "test": "echo \"Error: no test specified\" && exit 1"
+ },
+ "author": "Abdelhakim RAFIK",
+ "license": "ISC",
+ "devDependencies": {
+  "gulp": "^4.0.2",
+  "gulp-coffeescript": "0.0.15",
+  "gulp-sass": "^4.1.0"
+ },
+ "dependencies": {
+  "electron": "^11.2.1",
+  "electron-pug": "^2.0.0"
+ }
+}
