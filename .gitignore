@@ -4,9 +4,7 @@ logs
 npm-debug.log*
 
 # Compiled files
-build/**/*.js
-build/public/css/
-build/public/js/
+build/
 
 # Dependency directories
 node_modules/

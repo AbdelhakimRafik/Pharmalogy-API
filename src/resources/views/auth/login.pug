@@ -1,0 +1,98 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='utf-8')
+		title Log In | UBold - Responsive Admin Dashboard Template
+		meta(name='viewport' content='width=device-width, initial-scale=1.0')
+		meta(content='A fully featured admin theme which can be used to build CRM, CMS, etc.' name='description')
+		meta(content='Coderthemes' name='author')
+		meta(http-equiv='X-UA-Compatible' content='IE=edge')
+		// App favicon
+		link(rel='shortcut icon' href='../assets/images/favicon.ico')
+		// App css
+		link#bs-default-stylesheet(href='../assets/css/bootstrap-creative.min.css' rel='stylesheet' type='text/css')
+		link#app-default-stylesheet(href='../assets/css/app-creative.min.css' rel='stylesheet' type='text/css')
+		link#bs-dark-stylesheet(href='../assets/css/bootstrap-creative-dark.min.css' rel='stylesheet' type='text/css' disabled='')
+		link#app-dark-stylesheet(href='../assets/css/app-creative-dark.min.css' rel='stylesheet' type='text/css' disabled='')
+		// icons
+		link(href='../assets/css/icons.min.css' rel='stylesheet' type='text/css')
+	body.auth-fluid-pages.pb-0
+		.auth-fluid
+			// Auth fluid left content
+			.auth-fluid-form-box
+				.align-items-center.d-flex.h-100
+					.card-body
+						// Logo
+						.auth-brand.text-center.text-lg-left
+							.auth-logo
+								a.logo.logo-dark.text-center(href='index.html')
+									span.logo-lg
+										img(src='../assets/images/logo-dark.png' alt='' height='22')
+								a.logo.logo-light.text-center(href='index.html')
+									span.logo-lg
+										img(src='../assets/images/logo-light.png' alt='' height='22')
+						// title
+						h4.mt-0 Sign In
+						p.text-muted.mb-4 Enter your email address and password to access account.
+						// form
+						form(action='#')
+							.form-group
+								label(for='emailaddress') Email address
+								input#emailaddress.form-control(type='email' required='' placeholder='Enter your email')
+							.form-group
+								a.text-muted.float-right(href='auth-recoverpw-2.html')
+									small Forgot your password?
+								label(for='password') Password
+								.input-group.input-group-merge
+									input#password.form-control(type='password' placeholder='Enter your password')
+									.input-group-append(data-password='false')
+										.input-group-text
+											span.password-eye
+							.form-group.mb-3
+								.custom-control.custom-checkbox
+									input#checkbox-signin.custom-control-input(type='checkbox')
+									label.custom-control-label(for='checkbox-signin') Remember me
+							.form-group.mb-0.text-center
+								button.btn.btn-primary.btn-block(type='submit') Log In 
+							// social
+							.text-center.mt-4
+								p.text-muted.font-16 Sign in with
+								ul.social-list.list-inline.mt-3
+									li.list-inline-item
+										a.social-list-item.border-primary.text-primary(href='javascript: void(0);')
+											i.mdi.mdi-facebook
+									li.list-inline-item
+										a.social-list-item.border-danger.text-danger(href='javascript: void(0);')
+											i.mdi.mdi-google
+									li.list-inline-item
+										a.social-list-item.border-info.text-info(href='javascript: void(0);')
+											i.mdi.mdi-twitter
+									li.list-inline-item
+										a.social-list-item.border-secondary.text-secondary(href='javascript: void(0);')
+											i.mdi.mdi-github
+						// end form
+						// Footer
+						footer.footer.footer-alt
+							p.text-muted
+								| Don't have an account? 
+								a.text-muted.ml-1(href='auth-register-2.html')
+									b Sign Up
+					// end .card-body
+					// end .align-items-center.d-flex.h-100
+					// end auth-fluid-form-box
+					// Auth fluid right content
+					.auth-fluid-right.text-center
+						.auth-user-testimonial
+							h2.mb-3.text-white I love the color!
+							p.lead
+								i.mdi.mdi-format-quote-open
+								|  I've been using your theme from the previous developer for our web app, once I knew new version is out, I immediately bought with no hesitation. Great themes, good documentation with lots of customization available and sample app that really fit our need. 
+								i.mdi.mdi-format-quote-close
+							h5.text-white - Fadlisaad (Ubold Admin User)
+						// end auth-user-testimonial
+						// end Auth fluid right content
+						// end auth-fluid
+						// Vendor js
+						script(src='../assets/js/vendor.min.js')
+						// App js
+						script(src='../assets/js/app.min.js')

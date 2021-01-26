@@ -12,7 +12,8 @@
  "devDependencies": {
   "gulp": "^4.0.2",
   "gulp-coffeescript": "0.0.15",
-  "gulp-sass": "^4.1.0"
+  "gulp-sass": "^4.1.0",
+  "gulp-webp": "^4.0.1"
  },
  "dependencies": {
   "electron": "^11.2.1",

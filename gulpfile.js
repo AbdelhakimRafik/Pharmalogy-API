@@ -18,11 +18,17 @@ function sassTask(cb) {
 	cb();
 }
 
+function pug(cb) {
+	gulp.src('./src/resources/views/**/*.pug')
+		.pipe(gulp.dest('./build/resources/views/'));
+	cb();
+}
+
 function watch() {
 	gulp.watch('./src/**/*.coffee', coffeeTask);
 	gulp.watch('./src/public/sass/**/*.sass', sassTask);
 }
 
-var build = gulp.parallel(coffeeTask, sassTask);
+var build = gulp.parallel(coffeeTask, sassTask, pug);
 
 exports.default = gulp.series(build, watch);
