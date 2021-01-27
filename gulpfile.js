@@ -1,7 +1,8 @@
 
 var gulp 	= require('gulp'),
 	coffee 	= require('gulp-coffeescript'),
-	sass 	= require('gulp-sass');
+	sass 	= require('gulp-sass'),
+	del 	= require('del');
 
 
 function coffeeTask(cb) {
@@ -12,23 +13,47 @@ function coffeeTask(cb) {
 }
 
 function sassTask(cb) {
-	gulp.src('./src/public/sass/**/*.sass')
+	gulp.src('./src/assets/sass/**/!(_)*.sass')
 		.pipe(sass().on('error', sass.logError))
-		.pipe(gulp.dest('./build/public/css/'));
+		.pipe(gulp.dest('./build/assets/css/'));
 	cb();
 }
 
-function pug(cb) {
+function pugTask(cb) {
 	gulp.src('./src/resources/views/**/*.pug')
 		.pipe(gulp.dest('./build/resources/views/'));
 	cb();
 }
 
-function watch() {
-	gulp.watch('./src/**/*.coffee', coffeeTask);
-	gulp.watch('./src/public/sass/**/*.sass', sassTask);
+function mediaTask(cb) {
+	gulp.src('./src/assets/img/**/*.{png, jpeg, jpg}')
+		.pipe(gulp.dest('./build/assets/img/'));
+	cb();
 }
 
-var build = gulp.parallel(coffeeTask, sassTask, pug);
+function vendorsTask(cb) {
+	gulp.src('./src/assets/vendors/**/*')
+		.pipe(gulp.dest('./build/assets/vendors'));
+	cb();
+}
+
+function clean(cb) {
+	(async function() {
+		await del(['./build']);
+	})();
+
+	cb();
+}
+
+function watch() {
+	gulp.watch('./src/**/*.coffee', coffeeTask);
+	gulp.watch('./src/assets/sass/**/*.sass', sassTask);
+	gulp.watch('./src/resources/views/**/*.pug', pugTask);
+	gulp.watch('./src/assets/img/**/*.{png, jpeg, jpg}', mediaTask);
+	gulp.watch('./src/assets/vendors/**/*', vendorsTask);
+}
+
+var build = gulp.parallel(coffeeTask, sassTask, pugTask, mediaTask, vendorsTask);
 
 exports.default = gulp.series(build, watch);
+exports.clean = clean;

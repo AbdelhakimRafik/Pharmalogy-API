@@ -1,8 +1,362 @@
-doctype html
-head
-	meta(charset='UTF-8')
-	title Hello World!
-	meta(http-equiv='Content-Security-Policy' content="script-src 'self' 'unsafe-inline';")
-body
-	h1 Hello World!
-	p How are you there ?
+extends layouts/master.pug
+
+block styles
+	link(href='../../assets/vendors/css/flatpickr.min.css' rel='stylesheet' type='text/css')
+	link(href='../../assets/vendors/css/selectize.bootstrap3.css' rel='stylesheet' type='text/css')
+
+
+block content
+	.content
+		//- Start Content
+		.container-fluid
+			//- start page title
+			.row
+				.col-12
+					.page-title-box
+						.page-title-right
+							form.form-inline
+								.form-group
+									.input-group.input-group-sm
+										input#dash-daterange.form-control.border(type='text')
+										.input-group-append
+											span.input-group-text.bg-blue.border-blue.text-white
+												i.mdi.mdi-calendar-range
+								a.btn.btn-blue.btn-sm.ml-2(href='#')
+									i.mdi.mdi-autorenew
+								a.btn.btn-blue.btn-sm.ml-1(href='#')
+									i.mdi.mdi-filter-variant
+						h4.page-title Dashboard
+
+			//- end page title
+			.row
+				.col-md-6.col-xl-3
+					.widget-rounded-circle.card-box
+						.row
+							.col-6
+								.avatar-lg.rounded-circle.bg-soft-primary.border-primary.border
+									i.fe-heart.font-22.avatar-title.text-primary
+							.col-6
+								.text-right
+									h3.mt-1
+										| $
+										span(data-plugin='counterup') 58,947
+									p.text-muted.mb-1.text-truncate Total Revenue
+				//- end row
+				//- end widget-rounded-circle
+				//- end col
+				.col-md-6.col-xl-3
+					.widget-rounded-circle.card-box
+						.row
+							.col-6
+								.avatar-lg.rounded-circle.bg-soft-success.border-success.border
+									i.fe-shopping-cart.font-22.avatar-title.text-success
+							.col-6
+								.text-right
+									h3.text-dark.mt-1
+										span(data-plugin='counterup') 127
+									p.text-muted.mb-1.text-truncate Today's Sales
+				//- end row
+				//- end widget-rounded-circle
+				//- end col
+				.col-md-6.col-xl-3
+					.widget-rounded-circle.card-box
+						.row
+							.col-6
+								.avatar-lg.rounded-circle.bg-soft-info.border-info.border
+									i.fe-bar-chart-line-.font-22.avatar-title.text-info
+							.col-6
+								.text-right
+									h3.text-dark.mt-1
+										span(data-plugin='counterup') 0.58
+										| %
+									p.text-muted.mb-1.text-truncate Conversion
+				//- end row
+				//- end widget-rounded-circle
+				//- end col
+				.col-md-6.col-xl-3
+					.widget-rounded-circle.card-box
+						.row
+							.col-6
+								.avatar-lg.rounded-circle.bg-soft-warning.border-warning.border
+									i.fe-eye.font-22.avatar-title.text-warning
+							.col-6
+								.text-right
+									h3.text-dark.mt-1
+										span(data-plugin='counterup') 78.41
+										| k
+									p.text-muted.mb-1.text-truncate Today's Visits
+
+			.row
+				.col-lg-4
+					.card-box
+						.dropdown.float-right
+							a.dropdown-toggle.arrow-none.card-drop(href='#' data-toggle='dropdown' aria-expanded='false')
+								i.mdi.mdi-dots-vertical
+							.dropdown-menu.dropdown-menu-right
+								//- item
+								a.dropdown-item(href='#') Sales Report
+								//- item
+								a.dropdown-item(href='#') Export Report
+								//- item
+								a.dropdown-item(href='#') Profit
+								//- item
+								a.dropdown-item(href='#') Action
+						h4.header-title.mb-0 Total Revenue
+						.widget-chart.text-center(dir='ltr')
+							#total-revenue.mt-0(data-colors='#f1556c')
+							h5.text-muted.mt-0 Total sales made today
+							h2 $178
+							p.text-muted.w-75.mx-auto.sp-line-2
+								| Traditional heading elements are designed to work best in the meat of your page content.
+							.row.mt-3
+								.col-4
+									p.text-muted.font-15.mb-1.text-truncate Target
+									h4
+										i.fe-arrow-down.text-danger.mr-1
+										| $7.8k
+								.col-4
+									p.text-muted.font-15.mb-1.text-truncate Last week
+									h4
+										i.fe-arrow-up.text-success.mr-1
+										| $1.4k
+								.col-4
+									p.text-muted.font-15.mb-1.text-truncate Last Month
+									h4
+										i.fe-arrow-down.text-danger.mr-1
+										| $15k
+				//- end card-box
+				//- end col
+				.col-lg-8
+					.card-box.pb-2
+						.float-right.d-none.d-md-inline-block
+							.btn-group.mb-2
+								button.btn.btn-xs.btn-light(type='button') Today
+								button.btn.btn-xs.btn-light(type='button') Weekly
+								button.btn.btn-xs.btn-secondary(type='button') Monthly
+						h4.header-title.mb-3 Sales Analytics
+						div(dir='ltr')
+							#sales-analytics.mt-4(data-colors='#1abc9c,#4a81d4')
+
+			.row
+				.col-xl-6
+					.card-box
+						.dropdown.float-right
+							a.dropdown-toggle.arrow-none.card-drop(href='#' data-toggle='dropdown' aria-expanded='false')
+								i.mdi.mdi-dots-vertical
+							.dropdown-menu.dropdown-menu-right
+								//- item
+								a.dropdown-item(href='#') Edit Report
+								//- item
+								a.dropdown-item(href='#') Export Report
+								//- item
+								a.dropdown-item(href='#') Action
+						h4.header-title.mb-3 Top 5 Users Balances
+						.table-responsive
+							table.table.table-borderless.table-hover.table-nowrap.table-centered.m-0
+								thead.thead-light
+									tr
+										th(colspan='2') Profile
+										th Currency
+										th Balance
+										th Reserved in orders
+										th Action
+								tbody
+									tr
+										td(style='width: 36px;')
+											img.rounded-circle.avatar-sm(src='../../assets/img/users/user-2.jpg' alt='contact-img' title='contact-img')
+										td
+											h5.m-0.font-weight-normal Tomaslau
+											p.mb-0.text-muted
+												small Member Since 2017
+										td
+											i.mdi.mdi-currency-btc.text-primary
+											|  BTC
+										td
+											| 0.00816117 BTC
+										td
+											| 0.00097036 BTC
+										td
+											a.btn.btn-xs.btn-light(href='#')
+												i.mdi.mdi-plus
+											a.btn.btn-xs.btn-danger(href='#')
+												i.mdi.mdi-minus
+									tr
+										td(style='width: 36px;')
+											img.rounded-circle.avatar-sm(src='../../assets/img/users/user-3.jpg' alt='contact-img' title='contact-img')
+										td
+											h5.m-0.font-weight-normal Erwin E. Brown
+											p.mb-0.text-muted
+												small Member Since 2017
+										td
+											i.mdi.mdi-currency-eth.text-primary
+											|  ETH
+										td
+											| 3.16117008 ETH
+										td
+											| 1.70360009 ETH
+										td
+											a.btn.btn-xs.btn-light(href='#')
+												i.mdi.mdi-plus
+											a.btn.btn-xs.btn-danger(href='#')
+												i.mdi.mdi-minus
+									tr
+										td(style='width: 36px;')
+											img.rounded-circle.avatar-sm(src='../../assets/img/users/user-4.jpg' alt='contact-img' title='contact-img')
+										td
+											h5.m-0.font-weight-normal Margeret V. Ligon
+											p.mb-0.text-muted
+												small Member Since 2017
+										td
+											i.mdi.mdi-currency-eur.text-primary
+											|  EUR
+										td
+											| 25.08 EUR
+										td
+											| 12.58 EUR
+										td
+											a.btn.btn-xs.btn-light(href='#')
+												i.mdi.mdi-plus
+											a.btn.btn-xs.btn-danger(href='#')
+												i.mdi.mdi-minus
+									tr
+										td(style='width: 36px;')
+											img.rounded-circle.avatar-sm(src='../../assets/img/users/user-5.jpg' alt='contact-img' title='contact-img')
+										td
+											h5.m-0.font-weight-normal Jose D. Delacruz
+											p.mb-0.text-muted
+												small Member Since 2017
+										td
+											i.mdi.mdi-currency-cny.text-primary
+											|  CNY
+										td
+											| 82.00 CNY
+										td
+											| 30.83 CNY
+										td
+											a.btn.btn-xs.btn-light(href='#')
+												i.mdi.mdi-plus
+											a.btn.btn-xs.btn-danger(href='#')
+												i.mdi.mdi-minus
+									tr
+										td(style='width: 36px;')
+											img.rounded-circle.avatar-sm(src='../../assets/img/users/user-6.jpg' alt='contact-img' title='contact-img')
+										td
+											h5.m-0.font-weight-normal Luke J. Sain
+											p.mb-0.text-muted
+												small Member Since 2017
+										td
+											i.mdi.mdi-currency-btc.text-primary
+											|  BTC
+										td
+											| 2.00816117 BTC
+										td
+											| 1.00097036 BTC
+										td
+											a.btn.btn-xs.btn-light(href='#')
+												i.mdi.mdi-plus
+											a.btn.btn-xs.btn-danger(href='#')
+												i.mdi.mdi-minus
+				//- end col
+				.col-xl-6
+					.card-box
+						.dropdown.float-right
+							a.dropdown-toggle.arrow-none.card-drop(href='#' data-toggle='dropdown' aria-expanded='false')
+								i.mdi.mdi-dots-vertical
+							.dropdown-menu.dropdown-menu-right
+								//- item
+								a.dropdown-item(href='#') Edit Report
+								//- item
+								a.dropdown-item(href='#') Export Report
+								//- item
+								a.dropdown-item(href='#') Action
+						h4.header-title.mb-3 Revenue History
+						.table-responsive
+							table.table.table-borderless.table-nowrap.table-hover.table-centered.m-0
+								thead.thead-light
+									tr
+										th Marketplaces
+										th Date
+										th Payouts
+										th Status
+										th Action
+								tbody
+									tr
+										td
+											h5.m-0.font-weight-normal Themes Market
+										td
+											| Oct 15, 2018
+										td
+											| $5848.68
+										td
+											span.badge.bg-soft-warning.text-warning Upcoming
+										td
+											a.btn.btn-xs.btn-light(href='#')
+												i.mdi.mdi-pencil
+									tr
+										td
+											h5.m-0.font-weight-normal Freelance
+										td
+											| Oct 12, 2018
+										td
+											| $1247.25
+										td
+											span.badge.bg-soft-success.text-success Paid
+										td
+											a.btn.btn-xs.btn-light(href='#')
+												i.mdi.mdi-pencil
+									tr
+										td
+											h5.m-0.font-weight-normal Share Holding
+										td
+											| Oct 10, 2018
+										td
+											| $815.89
+										td
+											span.badge.bg-soft-success.text-success Paid
+										td
+											a.btn.btn-xs.btn-light(href='#')
+												i.mdi.mdi-pencil
+									tr
+										td
+											h5.m-0.font-weight-normal Envato's Affiliates
+										td
+											| Oct 03, 2018
+										td
+											| $248.75
+										td
+											span.badge.bg-soft-danger.text-danger Overdue
+										td
+											a.btn.btn-xs.btn-light(href='#')
+												i.mdi.mdi-pencil
+									tr
+										td
+											h5.m-0.font-weight-normal Marketing Revenue
+										td
+											| Sep 21, 2018
+										td
+											| $978.21
+										td
+											span.badge.bg-soft-warning.text-warning Upcoming
+										td
+											a.btn.btn-xs.btn-light(href='#')
+												i.mdi.mdi-pencil
+									tr
+										td
+											h5.m-0.font-weight-normal Advertise Revenue
+										td
+											| Sep 15, 2018
+										td
+											| $358.10
+										td
+											span.badge.bg-soft-success.text-success Paid
+										td
+											a.btn.btn-xs.btn-light(href='#')
+												i.mdi.mdi-pencil
+
+
+block scripts
+	script(src='../../assets/vendors/js/flatpickr.min.js')
+	script(src='../../assets/vendors/js/apexcharts.min.js')
+	script(src='../../assets/vendors/js/selectize.min.js')
+	//- Dashboar init js
+	script(src='../../assets/vendors/js/pages/dashboard.init.js')

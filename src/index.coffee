@@ -5,6 +5,7 @@
 
 electron 		= require 'electron'
 pug 			= require 'electron-pug'
+path 			= require 'path'
 locals 			= {}
 app 			= electron.app
 BrowserWindow 	= electron.BrowserWindow
@@ -16,11 +17,14 @@ BrowserWindow 	= electron.BrowserWindow
 createWindow = ->
 	# create new window
 	mainWindow = new BrowserWindow
-		width: 800
-		height: 600
+		width: 1500
+		height: 1000
+		icon: path.join __dirname, 'assets/img/logo-fav.png'
+		webPreferences:
+			nodeIntegration: true
 
 	# set window view
-	mainWindow.loadFile './resources/views/index.pug'
+	mainWindow.loadFile path.join __dirname, 'resources/views/index.pug'
 	return
 
 ###*

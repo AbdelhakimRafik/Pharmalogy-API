@@ -1,0 +1,88 @@
+extends layouts/master.pug
+
+block content
+	.content
+		//- Start Content
+		.container-fluid
+			//- start page title
+			.row
+				.col-12
+					.page-title-box
+						h4.page-title Medecines
+			//- end page title
+			.row
+				.col-12
+					.card
+						.card-body
+							.row.mb-2
+								.col-sm-4
+									button.btn.btn-danger.waves-effect.waves-light(type='button')
+										i.mdi.mdi-plus-circle.mr-1
+										|  Add Medecine
+								.col-sm-8
+									.text-sm-right
+										button.btn.btn-success.mb-2.mr-1(type='button')
+											i.mdi.mdi-cog
+										button.btn.btn-light.mb-2.mr-1(type='button') Import
+										button.btn.btn-light.mb-2(type='button') Export
+								//- end col
+							.table-responsive
+								table#products-datatable.table.table-centered.table-nowrap.table-striped
+									thead
+										tr
+											th(style='width: 20px;')
+												.custom-control.custom-checkbox
+													input#customCheck1.custom-control-input(type='checkbox')
+													label.custom-control-label(for='customCheck1')  
+											th Customer
+											th Phone
+											th Email
+											th Location
+											th Create Date
+											th Status
+											th(style='width: 85px;') Action
+									tbody
+										- for (var i = 1; i < 12; ++i)
+											tr
+												td
+													.custom-control.custom-checkbox
+														input#customCheck2.custom-control-input(type='checkbox')
+														label.custom-control-label(for='customCheck2')  
+												td.table-user
+													img.mr-2.rounded-circle(src='../../assets/img/users/user-4.jpg' alt='table-user')
+													a.text-body.font-weight-semibold(href='#') Paul J. Friend
+												td
+													| 937-330-1634
+												td
+													| pauljfrnd@jourrapide.com
+												td
+													| New York
+												td
+													| 07/07/2018
+												td
+													span.badge.bg-soft-success.text-success Available
+												td
+													a.action-icon(href='#')
+														i.mdi.mdi-square-edit-outline
+													a.action-icon(href='#')
+														i.mdi.mdi-delete
+										
+							ul.pagination.pagination-rounded.justify-content-end.mb-0
+								li.page-item
+									a.page-link(href='#' aria-label='Previous')
+										span(aria-hidden='true') «
+										span.sr-only Previous
+								li.page-item.active
+									a.page-link(href='#') 1
+								li.page-item
+									a.page-link(href='#') 2
+								li.page-item
+									a.page-link(href='#') 3
+								li.page-item
+									a.page-link(href='#') 4
+								li.page-item
+									a.page-link(href='#') 5
+								li.page-item
+									a.page-link(href='#' aria-label='Next')
+										span(aria-hidden='true') »
+										span.sr-only Next

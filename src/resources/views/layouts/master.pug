@@ -1,0 +1,221 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='UTF-8')
+		title Pharmalogy
+		meta(http-equiv='Content-Security-Policy' content="script-src 'self' 'unsafe-inline';")
+
+		//- app css
+		link(href='../../assets/vendors/css/bootstrap.min.css' rel='stylesheet' type='text/css')
+		link(href='../../assets/vendors/css/app.min.css' rel='stylesheet' type='text/css')
+
+		//- icons
+		link(href='../../assets/vendors/css/icons.min.css' rel='stylesheet' type='text/css')
+
+		//- custom page style
+		block styles
+
+	body.right-bar-enabled(data-sidebar-size="default", data-sidebar-color="light", data-layout-width="fluid", data-layout-menu-position="fixed", data-sidebar-showuser="false", data-topbar-color="light")
+
+		//- begin page
+		#wrapper
+
+			//- top bar
+			.navbar-custom
+				.container-fluid
+					ul.list-unstyled.topnav-menu.float-right.mb-0
+						li.dropdown.d-none.d-lg-inline-block
+							a.nav-link.dropdown-toggle.arrow-none.waves-effect.waves-light(data-toggle='fullscreen' href='#')
+								i.fe-maximize.noti-icon
+
+						li.dropdown.notification-list.topbar-dropdown
+							a.nav-link.dropdown-toggle.waves-effect.waves-light(data-toggle='dropdown' href='#' role='button' aria-haspopup='false' aria-expanded='false')
+								i.fe-bell.noti-icon
+								span.badge.badge-danger.rounded-circle.noti-icon-badge 9
+							.dropdown-menu.dropdown-menu-right.dropdown-lg
+								//- item
+								.dropdown-item.noti-title
+									h5.m-0
+										span.float-right
+											a.text-dark(href='')
+												small Clear All
+										| Notification
+								.noti-scroll(data-simplebar='')
+									//- item
+									a.dropdown-item.notify-item.active(href='#')
+										.notify-icon
+											img.img-fluid.rounded-circle(src='../../assets/img/users/user-1.jpg' alt='')
+										p.notify-details Cristina Pride
+										p.text-muted.mb-0.user-msg
+											small Hi, How are you? What about our next meeting
+									//- item
+									a.dropdown-item.notify-item(href='#')
+										.notify-icon.bg-primary
+											i.mdi.mdi-comment-account-outline
+										p.notify-details
+											| Caleb Flakelar commented on Admin
+											small.text-muted 1 min ago
+									//- item
+									a.dropdown-item.notify-item(href='#')
+										.notify-icon
+											img.img-fluid.rounded-circle(src='../../assets/img/users/user-4.jpg' alt='')
+										p.notify-details Karen Robinson
+										p.text-muted.mb-0.user-msg
+											small Wow ! this admin looks good and awesome design
+									//- item
+									a.dropdown-item.notify-item(href='#')
+										.notify-icon.bg-warning
+											i.mdi.mdi-account-plus
+										p.notify-details
+											| New user registered.
+											small.text-muted 5 hours ago
+									//- item
+									a.dropdown-item.notify-item(href='#')
+										.notify-icon.bg-info
+											i.mdi.mdi-comment-account-outline
+										p.notify-details
+											| Caleb Flakelar commented on Admin
+											small.text-muted 4 days ago
+									//- item
+									a.dropdown-item.notify-item(href='#')
+										.notify-icon.bg-secondary
+											i.mdi.mdi-heart
+										p.notify-details
+											| Carlos Crouch liked
+											b Admin
+											small.text-muted 13 days ago
+								//- All
+								a.dropdown-item.text-center.text-primary.notify-item.notify-all(href='#')
+									| View all
+									i.fe-arrow-right
+						li.dropdown.notification-list.topbar-dropdown
+							a.nav-link.dropdown-toggle.nav-user.mr-0.waves-effect.waves-light(data-toggle='dropdown' href='#' role='button' aria-haspopup='false' aria-expanded='false')
+								img.rounded-circle(src='../../assets/img/users/user-1.jpg' alt='user-image')
+								span.pro-user-name.ml-1
+									| Geneva 
+									i.mdi.mdi-chevron-down
+							.dropdown-menu.dropdown-menu-right.profile-dropdown
+								//- item
+								.dropdown-header.noti-title
+									h6.text-overflow.m-0 Welcome !
+								//- item
+								a.dropdown-item.notify-item(href='#')
+									i.fe-briefcase
+									span My Pharmacy
+								//- item
+								a.dropdown-item.notify-item(href='#')
+									i.fe-settings
+									span Settings
+								//- item
+								a.dropdown-item.notify-item(href='#')
+									i.fe-lock
+									span Lock Screen
+								.dropdown-divider
+								//- item
+								a.dropdown-item.notify-item(href='#')
+									i.fe-log-out
+									span Logout
+					//- LOGO
+					.logo-box
+						a.logo.logo-light.text-center
+							span.logo-sm
+								img(src='../../assets/img/logo-fav.png' alt='' height='35')
+							span.logo-lg
+								img(src='../../assets/img/logo-fav.png' alt='' height='40')
+								span.name
+									| Pharmalogy
+					ul.list-unstyled.topnav-menu.topnav-menu-left.m-0
+						li
+							button.button-menu-mobile.waves-effect.waves-light
+								i.fe-menu
+					.clearfix
+
+			//- left sidebar
+			.left-side-menu
+				.h-100(data-simplebar='')
+					//- - Sidemenu
+					#sidebar-menu
+						ul#side-menu
+							li
+								a(href='index.pug')
+									i(data-feather='airplay')
+									span  Dashboard
+							li.menu-title.mt-2 Pharmacy
+							li
+								a(href='medecines.pug')
+									i(data-feather='grid')
+									span  Medecines
+							li
+								a(href='#sidebarCharts' data-toggle='collapse')
+									i(data-feather='bar-chart-2')
+									span  Sels 
+									span.menu-arrow
+								#sidebarCharts.collapse
+									ul.nav-second-level
+										li
+											a(href='charts-apex.html') Apex Charts
+										li
+											a(href='charts-flot.html') Flot Charts
+										li
+											a(href='charts-morris.html') Morris Charts
+										li
+											a(href='charts-chartjs.html') Chartjs Charts
+										li
+											a(href='charts-peity.html') Peity Charts
+										li
+											a(href='charts-chartist.html') Chartist Charts
+										li
+											a(href='charts-c3.html') C3 Charts
+										li
+											a(href='charts-sparklines.html') Sparklines Charts
+										li
+											a(href='charts-knob.html') Jquery Knob Charts
+							li
+								a(href='#')
+									i(data-feather='users')
+									span  Clients
+							li
+								a(href='#sidebarProjects' data-toggle='collapse')
+									i(data-feather='briefcase')
+									span  My pharmacy 
+									span.menu-arrow
+								#sidebarProjects.collapse
+									ul.nav-second-level
+										li
+											a(href='project-list.html') List
+										li
+											a(href='project-detail.html') Detail
+										li
+											a(href='project-create.html') Create Project
+							li.menu-title.mt-2 Other
+							li
+								a(href='#')
+									i.fe-settings
+									span  Settings
+							li
+								a(href='#')
+									i(data-feather='clipboard')
+									span  Activities
+							li
+								a(href='#')
+									i.fe-log-out
+									span  Logout
+							
+					//- End Sidebar
+					.clearfix
+
+			//-- page content
+			.content-page
+				block content
+
+		//- Jquery
+		script(src='../../assets/vendors/js/jquery.min.js')
+
+		//- Vendor js
+		script(src='../../assets/vendors/js/vendor.min.js')
+
+		//- App js
+		script(src='../../assets/vendors/js/app.min.js')
+
+		//- custom page script
+		block scripts
