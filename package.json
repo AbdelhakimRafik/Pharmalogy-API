@@ -5,6 +5,7 @@
  "main": "index.js",
  "scripts": {
   "start": "electron ./build/",
+  "serv": "node ./build/api/",
   "test": "echo \"Error: no test specified\" && exit 1"
  },
  "author": "Abdelhakim RAFIK",
@@ -17,7 +18,12 @@
   "gulp-webp": "^4.0.1"
  },
  "dependencies": {
+  "bcryptjs": "^2.4.3",
   "electron": "^11.2.1",
-  "electron-pug": "^2.0.0"
+  "electron-pug": "^2.0.0",
+  "express": "^4.17.1",
+  "got": "^11.8.1",
+  "jsonwebtoken": "^8.5.1",
+  "mysql": "^2.18.1"
  }
 }

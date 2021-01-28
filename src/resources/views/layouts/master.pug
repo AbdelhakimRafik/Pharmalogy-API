@@ -92,7 +92,7 @@ html(lang='en')
 							a.nav-link.dropdown-toggle.nav-user.mr-0.waves-effect.waves-light(data-toggle='dropdown' href='#' role='button' aria-haspopup='false' aria-expanded='false')
 								img.rounded-circle(src='../../assets/img/users/user-1.jpg' alt='user-image')
 								span.pro-user-name.ml-1
-									| Geneva 
+									span#username
 									i.mdi.mdi-chevron-down
 							.dropdown-menu.dropdown-menu-right.profile-dropdown
 								//- item
@@ -112,7 +112,7 @@ html(lang='en')
 									span Lock Screen
 								.dropdown-divider
 								//- item
-								a.dropdown-item.notify-item(href='#')
+								a.dropdown-item.notify-item.logout(style="cursor:pointer")
 									i.fe-log-out
 									span Logout
 					//- LOGO
@@ -197,7 +197,7 @@ html(lang='en')
 									i(data-feather='clipboard')
 									span  Activities
 							li
-								a(href='#')
+								a.logout(style="cursor:pointer")
 									i.fe-log-out
 									span  Logout
 							
@@ -216,6 +216,10 @@ html(lang='en')
 
 		//- App js
 		script(src='../../assets/vendors/js/app.min.js')
+
+		//- Master controller
+		script.
+			require('../../app/controllers/masterController.js')
 
 		//- custom page script
 		block scripts

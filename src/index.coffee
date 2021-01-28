@@ -6,6 +6,7 @@
 electron 		= require 'electron'
 pug 			= require 'electron-pug'
 path 			= require 'path'
+auth 			= require './utils/auth'
 locals 			= {}
 app 			= electron.app
 BrowserWindow 	= electron.BrowserWindow
@@ -14,7 +15,7 @@ BrowserWindow 	= electron.BrowserWindow
  * Create new window and load index view
  * @return
 ###
-createWindow = ->
+createWindow = (page)->
 	# create new window
 	mainWindow = new BrowserWindow
 		width: 1500
@@ -24,7 +25,7 @@ createWindow = ->
 			nodeIntegration: true
 
 	# set window view
-	mainWindow.loadFile path.join __dirname, 'resources/views/index.pug'
+	mainWindow.loadFile path.join __dirname, 'resources/views/', page
 	return
 
 ###*
@@ -37,8 +38,13 @@ app.on 'ready', ->
 	catch e
 		console.error 'Pug Compilation ERROR >>', e
 
+	# check if user already logged in
+	if auth.isAuthenticated()
+		page = 'index.pug'
+	else
+		page = 'auth/login.pug'
 	# create new window
-	do createWindow
+	createWindow page
 	return
 	
 ###*

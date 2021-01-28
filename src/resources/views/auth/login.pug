@@ -25,14 +25,15 @@ html(lang='en')
 											span.logo-lg
 												img(src='../../../assets/img/logo.png' alt='' height='100')
 									p.text-muted.mb-4.mt-3 Enter your email address and password to access admin panel.
-								form(action='#')
+								.alert.alert-danger#login-status(role='alert', style="display:none")
+								form#loginForm
 									.form-group.mb-3
 										label(for='emailaddress') Email address
-										input#emailaddress.form-control(type='email' required='' placeholder='Enter your email')
+										input#emailaddress.form-control(type='email' name='email' required='' placeholder='Enter your email')
 									.form-group.mb-3
 										label(for='password') Password
 										.input-group.input-group-merge
-											input#password.form-control(type='password' placeholder='Enter your password')
+											input#password.form-control(type='password' name='email' placeholder='Enter your password')
 											.input-group-append(data-password='false')
 												.input-group-text
 													span.password-eye
@@ -63,3 +64,6 @@ html(lang='en')
 		script(src='../../../assets/vendors/js/vendor.min.js')
 		//- App js
 		script(src='../../../assets/vendors/js/app.min.js')
+		//- Login controller
+		script.
+			require('../../../app/controllers/loginController.js')
