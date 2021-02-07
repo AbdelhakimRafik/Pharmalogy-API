@@ -43,11 +43,20 @@ module.exports.updatePharmaMedecineById = (req, res) ->
 		# update medicine
 	else
 		# add new medicine
+		console.log req.body
+		data = req.body
 		db.query
-			sql: 'insert into `pharma-medecines` values (?)'
-			values: req.body.data
+			sql: 'insert into `pharma-medecines` (pharmacy, medecine, provider, quantity, exp_date) values (?, ?, ?, ?, ?)'
+			values: [
+				req.user.data.pharmacy
+				data.medicine
+				data.provider
+				data.quantity
+				data.exp_date
+			]
 			(err, results) ->
 				if err
+					console.log err
 					res.status(500).send
 						message: 'Server error occured'
 				else

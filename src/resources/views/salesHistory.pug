@@ -15,7 +15,7 @@ block content
 			.row
 				.col-12
 					.page-title-box
-						h4.page-title Orders
+						h4.page-title Sales History
 			//- end page title
 			.row
 				.col-12
@@ -23,9 +23,6 @@ block content
 						.card-body
 							.row.mb-2
 								.col-sm-4
-									a.btn.btn-danger.waves-effect.waves-light(href='addMedecine.pug')
-										i.mdi.mdi-plus-circle.mr-1
-										|  New order
 								.col-sm-8
 									.text-sm-right
 										button.btn.btn-success.mb-2.mr-1(type='button')
@@ -37,8 +34,8 @@ block content
 								table#datatable-medecines.table.table-striped.dt-responsive.nowrap.w-100
 									thead
 										tr
-											th Provider
-											th Date
+											th Name
+											th Laboratory
 											th Quantity
 											th Price
 											th(style='width: 85px;') Action
@@ -48,5 +45,4 @@ block scripts
 	script(src='../../assets/vendors/js/dataTables.bootstrap4.min.js')
 	script(src='../../assets/vendors/js/dataTables.buttons.min.js')
 
-	script.
-		require('../../app/controllers/medecinesController.js')
+	script(src='../../app/controllers/medecinesController.js')

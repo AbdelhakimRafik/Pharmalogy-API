@@ -29,22 +29,7 @@ block content
 
 			//- end page title
 			.row
-				.col-md-6.col-xl-3
-					.widget-rounded-circle.card-box
-						.row
-							.col-6
-								.avatar-lg.rounded-circle.bg-soft-primary.border-primary.border
-									i.fe-heart.font-22.avatar-title.text-primary
-							.col-6
-								.text-right
-									h3.mt-1
-										| $
-										span(data-plugin='counterup') 58,947
-									p.text-muted.mb-1.text-truncate Total Revenue
-				//- end row
-				//- end widget-rounded-circle
-				//- end col
-				.col-md-6.col-xl-3
+				.col-md-4
 					.widget-rounded-circle.card-box
 						.row
 							.col-6
@@ -55,36 +40,31 @@ block content
 									h3.text-dark.mt-1
 										span(data-plugin='counterup') 127
 									p.text-muted.mb-1.text-truncate Today's Sales
-				//- end row
-				//- end widget-rounded-circle
-				//- end col
-				.col-md-6.col-xl-3
+
+				.col-md-4
 					.widget-rounded-circle.card-box
 						.row
 							.col-6
 								.avatar-lg.rounded-circle.bg-soft-info.border-info.border
-									i.fe-bar-chart-line-.font-22.avatar-title.text-info
+									i.fe-truck.font-22.avatar-title.text-info
 							.col-6
 								.text-right
 									h3.text-dark.mt-1
-										span(data-plugin='counterup') 0.58
-										| %
-									p.text-muted.mb-1.text-truncate Conversion
-				//- end row
-				//- end widget-rounded-circle
-				//- end col
-				.col-md-6.col-xl-3
+										span(data-plugin='counterup') 5
+									p.text-muted.mb-1.text-truncate Waiting orders
+
+				.col-md-4
 					.widget-rounded-circle.card-box
 						.row
 							.col-6
 								.avatar-lg.rounded-circle.bg-soft-warning.border-warning.border
-									i.fe-eye.font-22.avatar-title.text-warning
+									i.fe-dollar-sign.font-22.avatar-title.text-warning
 							.col-6
 								.text-right
 									h3.text-dark.mt-1
-										span(data-plugin='counterup') 78.41
-										| k
-									p.text-muted.mb-1.text-truncate Today's Visits
+										span(data-plugin='counterup') 43249
+										| Dh
+									p.text-muted.mb-1.text-truncate Week's sold 
 
 			.row
 				.col-lg-4
@@ -105,25 +85,25 @@ block content
 						.widget-chart.text-center(dir='ltr')
 							#total-revenue.mt-0(data-colors='#f1556c')
 							h5.text-muted.mt-0 Total sales made today
-							h2 $178
+							h2 2043 Dh
 							p.text-muted.w-75.mx-auto.sp-line-2
-								| Traditional heading elements are designed to work best in the meat of your page content.
+								| Revenue analytics
 							.row.mt-3
 								.col-4
 									p.text-muted.font-15.mb-1.text-truncate Target
 									h4
 										i.fe-arrow-down.text-danger.mr-1
-										| $7.8k
+										| 200 Dh
 								.col-4
 									p.text-muted.font-15.mb-1.text-truncate Last week
 									h4
 										i.fe-arrow-up.text-success.mr-1
-										| $1.4k
+										| 5000 Dh
 								.col-4
 									p.text-muted.font-15.mb-1.text-truncate Last Month
 									h4
 										i.fe-arrow-down.text-danger.mr-1
-										| $15k
+										| 10500 Dh
 				//- end card-box
 				//- end col
 				.col-lg-8
@@ -150,20 +130,17 @@ block content
 								a.dropdown-item(href='#') Export Report
 								//- item
 								a.dropdown-item(href='#') Action
-						h4.header-title.mb-3 Top 5 Users Balances
+						h4.header-title.mb-3 Sales History
 						.table-responsive
 							table.table.table-borderless.table-hover.table-nowrap.table-centered.m-0
 								thead.thead-light
 									tr
-										th(colspan='2') Profile
+										th Medicine
 										th Currency
 										th Balance
 										th Reserved in orders
-										th Action
 								tbody
 									tr
-										td(style='width: 36px;')
-											img.rounded-circle.avatar-sm(src='../../assets/img/users/user-2.jpg' alt='contact-img' title='contact-img')
 										td
 											h5.m-0.font-weight-normal Tomaslau
 											p.mb-0.text-muted
@@ -175,14 +152,7 @@ block content
 											| 0.00816117 BTC
 										td
 											| 0.00097036 BTC
-										td
-											a.btn.btn-xs.btn-light(href='#')
-												i.mdi.mdi-plus
-											a.btn.btn-xs.btn-danger(href='#')
-												i.mdi.mdi-minus
 									tr
-										td(style='width: 36px;')
-											img.rounded-circle.avatar-sm(src='../../assets/img/users/user-3.jpg' alt='contact-img' title='contact-img')
 										td
 											h5.m-0.font-weight-normal Erwin E. Brown
 											p.mb-0.text-muted
@@ -194,14 +164,7 @@ block content
 											| 3.16117008 ETH
 										td
 											| 1.70360009 ETH
-										td
-											a.btn.btn-xs.btn-light(href='#')
-												i.mdi.mdi-plus
-											a.btn.btn-xs.btn-danger(href='#')
-												i.mdi.mdi-minus
 									tr
-										td(style='width: 36px;')
-											img.rounded-circle.avatar-sm(src='../../assets/img/users/user-4.jpg' alt='contact-img' title='contact-img')
 										td
 											h5.m-0.font-weight-normal Margeret V. Ligon
 											p.mb-0.text-muted
@@ -213,14 +176,7 @@ block content
 											| 25.08 EUR
 										td
 											| 12.58 EUR
-										td
-											a.btn.btn-xs.btn-light(href='#')
-												i.mdi.mdi-plus
-											a.btn.btn-xs.btn-danger(href='#')
-												i.mdi.mdi-minus
 									tr
-										td(style='width: 36px;')
-											img.rounded-circle.avatar-sm(src='../../assets/img/users/user-5.jpg' alt='contact-img' title='contact-img')
 										td
 											h5.m-0.font-weight-normal Jose D. Delacruz
 											p.mb-0.text-muted
@@ -232,14 +188,7 @@ block content
 											| 82.00 CNY
 										td
 											| 30.83 CNY
-										td
-											a.btn.btn-xs.btn-light(href='#')
-												i.mdi.mdi-plus
-											a.btn.btn-xs.btn-danger(href='#')
-												i.mdi.mdi-minus
 									tr
-										td(style='width: 36px;')
-											img.rounded-circle.avatar-sm(src='../../assets/img/users/user-6.jpg' alt='contact-img' title='contact-img')
 										td
 											h5.m-0.font-weight-normal Luke J. Sain
 											p.mb-0.text-muted
@@ -251,11 +200,6 @@ block content
 											| 2.00816117 BTC
 										td
 											| 1.00097036 BTC
-										td
-											a.btn.btn-xs.btn-light(href='#')
-												i.mdi.mdi-plus
-											a.btn.btn-xs.btn-danger(href='#')
-												i.mdi.mdi-minus
 				//- end col
 				.col-xl-6
 					.card-box
@@ -269,12 +213,12 @@ block content
 								a.dropdown-item(href='#') Export Report
 								//- item
 								a.dropdown-item(href='#') Action
-						h4.header-title.mb-3 Revenue History
+						h4.header-title.mb-3 Last orders
 						.table-responsive
 							table.table.table-borderless.table-nowrap.table-hover.table-centered.m-0
 								thead.thead-light
 									tr
-										th Marketplaces
+										th Provider
 										th Date
 										th Payouts
 										th Status
@@ -282,11 +226,11 @@ block content
 								tbody
 									tr
 										td
-											h5.m-0.font-weight-normal Themes Market
+											h5.m-0.font-weight-normal HidalMedical
 										td
-											| Oct 15, 2018
+											| Oct 15, 2020
 										td
-											| $5848.68
+											| 5848.65 Dh
 										td
 											span.badge.bg-soft-warning.text-warning Upcoming
 										td
@@ -294,23 +238,11 @@ block content
 												i.mdi.mdi-pencil
 									tr
 										td
-											h5.m-0.font-weight-normal Freelance
+											h5.m-0.font-weight-normal MediMaroc
 										td
-											| Oct 12, 2018
+											| Oct 12, 2020
 										td
-											| $1247.25
-										td
-											span.badge.bg-soft-success.text-success Paid
-										td
-											a.btn.btn-xs.btn-light(href='#')
-												i.mdi.mdi-pencil
-									tr
-										td
-											h5.m-0.font-weight-normal Share Holding
-										td
-											| Oct 10, 2018
-										td
-											| $815.89
+											| 1247.25 Dh
 										td
 											span.badge.bg-soft-success.text-success Paid
 										td
@@ -318,11 +250,23 @@ block content
 												i.mdi.mdi-pencil
 									tr
 										td
-											h5.m-0.font-weight-normal Envato's Affiliates
+											h5.m-0.font-weight-normal DhasMaroc
 										td
-											| Oct 03, 2018
+											| Oct 10, 2020
 										td
-											| $248.75
+											| 815.89 Dh
+										td
+											span.badge.bg-soft-success.text-success Paid
+										td
+											a.btn.btn-xs.btn-light(href='#')
+												i.mdi.mdi-pencil
+									tr
+										td
+											h5.m-0.font-weight-normal HidalMedical
+										td
+											| Oct 03, 2020
+										td
+											| 248.75 Dh
 										td
 											span.badge.bg-soft-danger.text-danger Overdue
 										td
@@ -330,11 +274,11 @@ block content
 												i.mdi.mdi-pencil
 									tr
 										td
-											h5.m-0.font-weight-normal Marketing Revenue
+											h5.m-0.font-weight-normal HidalMedical
 										td
-											| Sep 21, 2018
+											| Sep 21, 2020
 										td
-											| $978.21
+											| 978.21 Dh
 										td
 											span.badge.bg-soft-warning.text-warning Upcoming
 										td
@@ -342,11 +286,11 @@ block content
 												i.mdi.mdi-pencil
 									tr
 										td
-											h5.m-0.font-weight-normal Advertise Revenue
+											h5.m-0.font-weight-normal HidalMedical
 										td
-											| Sep 15, 2018
+											| Sep 15, 2020
 										td
-											| $358.10
+											| 358.10 Dh
 										td
 											span.badge.bg-soft-success.text-success Paid
 										td

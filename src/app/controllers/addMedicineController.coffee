@@ -7,7 +7,12 @@ formInit = () ->
 		headers:
 			token: do auth.getToken
 		success: (res) ->
-			console.log '>>>', res
+			# add providers to list
+			for provider in res.data[0]
+				$('#medicine-provider').append "<option value=\"#{provider.id}\">#{provider.name}</option>"
+			# add medicines to list
+			for medicine in res.data[1]
+				$('#medicine-name').append "<option value=\"#{medicine.id}\">#{medicine.name}</option>"
 		error: (err) ->
 			console.log 'error', err
 
@@ -37,7 +42,8 @@ $(document).ready ()->
 			datatype: 'json'
 			success: (res) ->
 				if res
-					console.log 'Resulte', res
+					$('#success-alert-modal').modal 'show'
+					do e.currentTarget.reset
 				return
 			error: (err) ->
 				console.log 'error', err

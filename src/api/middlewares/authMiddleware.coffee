@@ -41,7 +41,7 @@ module.exports = (req, res, next) ->
 										message: 'Server error occured'
 								else
 									# create user object and add it to request
-									req.user = Object.create 
+									req.user = Object.create
 										data: user
 										permissions: permissions.map (p) -> p.name
 										hasPermission: (permission) ->

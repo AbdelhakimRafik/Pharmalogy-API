@@ -106,10 +106,6 @@ html(lang='en')
 								a.dropdown-item.notify-item(href='#')
 									i.fe-settings
 									span Settings
-								//- item
-								a.dropdown-item.notify-item(href='#')
-									i.fe-lock
-									span Lock Screen
 								.dropdown-divider
 								//- item
 								a.dropdown-item.notify-item.logout(style="cursor:pointer")
@@ -146,60 +142,34 @@ html(lang='en')
 									i(data-feather='grid')
 									span  Medicines
 							li
-								a(href='#sidebarCharts' data-toggle='collapse')
+								a(href='#sidebarSales' data-toggle='collapse')
 									i(data-feather='bar-chart-2')
-									span  Sels 
+									span  Sales 
 									span.menu-arrow
-								#sidebarCharts.collapse
+								#sidebarSales.collapse
 									ul.nav-second-level
 										li
-											a(href='charts-apex.html') Apex Charts
+											a(href='#') Sell
 										li
-											a(href='charts-flot.html') Flot Charts
-										li
-											a(href='charts-morris.html') Morris Charts
-										li
-											a(href='charts-chartjs.html') Chartjs Charts
-										li
-											a(href='charts-peity.html') Peity Charts
-										li
-											a(href='charts-chartist.html') Chartist Charts
-										li
-											a(href='charts-c3.html') C3 Charts
-										li
-											a(href='charts-sparklines.html') Sparklines Charts
-										li
-											a(href='charts-knob.html') Jquery Knob Charts
+											a(href='salesHistory.pug') History
 							li
-								a(href='#')
-									i(data-feather='grid')
+								a(href='orders.pug')
+									i(data-feather='truck')
 									span  Orders
 							li
 								a(href='#')
 									i(data-feather='users')
 									span  Clients
 							li
-								a(href='#sidebarProjects' data-toggle='collapse')
+								a(href='#')
 									i(data-feather='briefcase')
-									span  My pharmacy 
-									span.menu-arrow
-								#sidebarProjects.collapse
-									ul.nav-second-level
-										li
-											a(href='project-list.html') List
-										li
-											a(href='project-detail.html') Detail
-										li
-											a(href='project-create.html') Create Project
+									span  My pharmacy
+									
 							li.menu-title.mt-2 Other
 							li
 								a(href='#')
 									i.fe-settings
 									span  Settings
-							li
-								a(href='#')
-									i(data-feather='clipboard')
-									span  Activities
 							li
 								a.logout(style="cursor:pointer")
 									i.fe-log-out
