@@ -10,6 +10,7 @@ electron 		= require 'electron'
 pug 			= require 'electron-pug'
 path 			= require 'path'
 auth 			= require './utils/auth'
+db 				= require './db/db'
 locals 			= {}
 app 			= electron.app
 BrowserWindow 	= electron.BrowserWindow

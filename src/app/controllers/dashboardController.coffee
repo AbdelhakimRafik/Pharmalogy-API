@@ -8,4 +8,4 @@
 
 auth 		= require '../../utils/auth'
 
-do auth.getToken
+# do auth.getToken

@@ -15,7 +15,7 @@ block content
 			.row
 				.col-12
 					.page-title-box
-						h4.page-title Medecines
+						h4.page-title Orders
 			//- end page title
 			.row
 				.col-12
@@ -48,4 +48,5 @@ block scripts
 	script(src='../../assets/vendors/js/dataTables.bootstrap4.min.js')
 	script(src='../../assets/vendors/js/dataTables.buttons.min.js')
 
-	script(src='../../app/controllers/medecinesController.js')
+	script.
+		require('../../app/controllers/medecinesController.js')

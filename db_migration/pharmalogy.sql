@@ -51,8 +51,8 @@ CREATE TABLE `commandes` (
   `quantity` int(11) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
-  `commanded_at` datetime NOT NULL,
-  `delivered_at` datetime NOT NULL
+  `commanded_at` datetime NULL,
+  `delivered_at` datetime NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -244,6 +244,7 @@ CREATE TABLE `users` (
   `phone` varchar(10) NOT NULL,
   `city` varchar(30) NOT NULL,
   `country` varchar(30) NOT NULL,
+  `avatar` varchar(50) NULL,
   `role` int(11) NOT NULL,
   `pharmacy` int(11) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
@@ -254,8 +255,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `phone`, `city`, `country`, `role`, `pharmacy`, `created_at`) VALUES
-(2, 'Abdelhakim', 'Rafik', 'abdelhakim@gmail.com', '$2a$08$ZCvn.3gPVYxFCnkCUyBpte0tPblbMd0iHgcdvkbr0HOK3AU1vCkgu', '0668264355', 'Marrakech', 'Maroc', 2, 1, '2021-01-27 16:30:56'),
-(3, 'Halima', 'El asri', 'zaid@gmail.com', '$2a$08$ZCvn.3gPVYxFCnkCUyBpte0tPblbMd0iHgcdvkbr0HOK3AU1vCkgu', '0668264597', 'Marrakech', 'Maroc', 1, 1, '2021-01-27 17:54:54'),
+(2, 'Abdelhakim', 'Rafik', 'hakim@gmail.com', '$2a$08$ZCvn.3gPVYxFCnkCUyBpte0tPblbMd0iHgcdvkbr0HOK3AU1vCkgu', '0668264355', 'Marrakech', 'Maroc', 2, 1, '2021-01-27 16:30:56'),
+(3, 'Halima', 'El asri', 'halima@gmail.com', '$2a$08$ZCvn.3gPVYxFCnkCUyBpte0tPblbMd0iHgcdvkbr0HOK3AU1vCkgu', '0668264597', 'Marrakech', 'Maroc', 1, 1, '2021-01-27 17:54:54'),
 (4, 'Fadoua', 'Mslohi', 'fd@gmail.com', '$2a$08$ZCvn.3gPVYxFCnkCUyBpte0tPblbMd0iHgcdvkbr0HOK3AU1vCkgu', '0648351935', 'Marrakech', 'Maroc', 1, 2, '2021-01-27 20:23:49');
 
 --

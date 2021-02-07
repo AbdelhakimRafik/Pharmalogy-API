@@ -35,7 +35,7 @@ authRouter.route '/user'
 
 authRouter.route '/pharma/medecines'
 	.get medecinesController.getAllPharmaMedecines
-authRouter.route '/pharma/medecine'
+authRouter.route '/pharma/medecine/:id?'
 	.get medecinesController.getPharmaMedecineById
 	.post medecinesController.updatePharmaMedecineById
 	.delete medecinesController.deletePharmaMedecineById
