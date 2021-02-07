@@ -10,7 +10,6 @@ electron 		= require 'electron'
 pug 			= require 'electron-pug'
 path 			= require 'path'
 auth 			= require './utils/auth'
-db 				= require './db/db'
 locals 			= {}
 app 			= electron.app
 BrowserWindow 	= electron.BrowserWindow
@@ -50,7 +49,7 @@ app.on 'ready', ->
 	# create new window
 	createWindow page
 	return
-	
+
 ###*
  * Call when all windows are closed
  * @return
