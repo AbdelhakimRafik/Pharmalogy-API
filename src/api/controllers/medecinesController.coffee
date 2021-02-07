@@ -38,13 +38,14 @@ module.exports.getPharmaMedecineById = (req, res) ->
 	return
 
 module.exports.updatePharmaMedecineById = (req, res) ->
+
 	if req.params.id
 		# update medicine
 	else
 		# add new medicine
 		db.query
 			sql: 'insert into `pharma-medecines` values (?)'
-			values:
+			values: req.body.data
 			(err, results) ->
 				if err
 					res.status(500).send
@@ -52,7 +53,7 @@ module.exports.updatePharmaMedecineById = (req, res) ->
 				else
 					res.status(200).send
 						data: 'Medicine added successfully'
-				
+
 	return
 
 module.exports.deletePharmaMedecineById = (req, res) ->
@@ -72,3 +73,15 @@ module.exports.deletePharmaMedecineById = (req, res) ->
 						message: 'Deleted successfully'
 				return
 	return
+
+module.exports.getAllProviders = (req, res) ->
+
+	db.query
+		sql: 'select * from providers; select * from medecines'
+		(err, results) ->
+			if err
+				res.status(500).send
+					message: 'Server error occured'
+			else
+				res.status(200).send
+					data: results

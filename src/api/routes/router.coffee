@@ -33,12 +33,17 @@ authRouter.route '/user'
 	.post usersController.updateUser
 	.delete usersController.deleteUser
 
+# medicines routes
 authRouter.route '/pharma/medecines'
 	.get medecinesController.getAllPharmaMedecines
+
 authRouter.route '/pharma/medecine/:id?'
 	.get medecinesController.getPharmaMedecineById
 	.post medecinesController.updatePharmaMedecineById
 	.delete medecinesController.deletePharmaMedecineById
+
+authRouter.route '/provider/all'
+	.get medecinesController.getAllProviders
 
 # export the module
 module.exports.openRouter = openRouter

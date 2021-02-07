@@ -14,6 +14,7 @@ cnx = mysql.createConnection
 	user: 'root'
 	password: ''
 	database: 'pharmalogy'
+	multipleStatements: true
 
 # export connection
 module.exports = cnx
