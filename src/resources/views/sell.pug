@@ -26,55 +26,19 @@ block content
 													th Quantity
 													th Total
 													th(style='width: 50px;')
-											tbody
-												tr
-													td
-														| ABSTRAL
-													td 937.00 Dh
-													td
-														input.form-control(type='number' min='1' value='1' placeholder='Qty' style='width: 90px;')
-													td 937.00 Dh
-													td
-														a.action-icon(href='javascript:void(0);')
-															i.mdi.mdi-delete
-												tr
-													td
-														| FORACORT 200 INHALATEUR
-													td 189.00 Dh
-													td
-														input.form-control(type='number' min='1' value='1' placeholder='Qty' style='width: 90px;')
-													td 189.00 Dh
-													td
-														a.action-icon(href='javascript:void(0);')
-															i.mdi.mdi-delete
-												tr
-													td
-														| HEMOPASS DUO 75 MG
-													td 99.00 Dh
-													td
-														input.form-control(type='number' min='1' value='2' placeholder='Qty' style='width: 90px;')
-													td 198.00 Dh
-													td
-														a.action-icon(href='javascript:void(0);')
-															i.mdi.mdi-delete
-												tr
+											tbody#cart
 
 									.row.mt-3
 										.col-sm-7
 											label(for='example-textarea') Medicine:
-											select.form-control
-												option FORACORT 200 INHALATEUR
-												option hihi
-												option hihi
-												option hihi
-												option hihi
-												option hihi
+											select#medicine.form-control
+												option Select medicine
 												
 										.col-sm-3
 											label(for='example-textarea') Quantity:
-											input.form-control(type='number' min='1' value='1' placeholder='Qty')
+											input#quantity.form-control(type='number' min='1' value='1' placeholder='Qty')
 										.col-sm-2
-											button.btn.btn-danger(type='button', style='margin-top:30px;width:99%')
+											button#add-btn.btn.btn-danger(type='button', style='margin-top:30px;width:99%')
 												i.mdi.mdi-plus.mr-1
 												|  Add
 									//- action buttons
@@ -87,7 +51,9 @@ block content
 												tbody
 													tr
 														th Total :
-														th 1324.00 Dh
+														th
+															span#total 00.00
+															|  Dh
 										//- end table-responsive
 									//- .alert.alert-warning.mt-3(role='alert')
 									//-	| Use coupon code 
@@ -97,8 +63,8 @@ block content
 								//- end col
 								.col-sm-12
 									.text-sm-right
-										a.btn.btn-success(href='ecommerce-checkout.html')
+										button#validate-btn.btn.btn-success(type='button')
 											i.mdi.mdi-cart-plus.mr-1
 											|  Validate
 block scripts
-	//- script(src='../../assets/vendors/js/jquery.dataTables.min.js')
+	script(src='../../app/controllers/sellController.js')

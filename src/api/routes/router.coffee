@@ -16,6 +16,7 @@ authMiddleware 		= require '../middlewares/authMiddleware'
 authController 		= require '../controllers/authController'
 usersController 	= require '../controllers/usersController'
 medecinesController = require '../controllers/medecinesController'
+salesController 	= require '../controllers/salesController'
 
 # open routes
 openRouter.post '/register', authController.register
@@ -44,6 +45,9 @@ authRouter.route '/pharma/medecine/:id?'
 
 authRouter.route '/provider/all'
 	.get medecinesController.getAllProviders
+
+authRouter.route '/sales/add'
+	.post salesController.addSale
 
 # export the module
 module.exports.openRouter = openRouter
