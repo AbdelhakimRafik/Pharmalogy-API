@@ -9,20 +9,19 @@ block content
 				.col-12
 					.page-title-box
 						.page-title-right
-						h4.page-title Sell Medicine
+						h4.page-title Make order
 			//- end page title
 			.row
 				.col-12
 					.card
 						.card-body
 							.row
-								.col-lg-8
+								.col-lg-12
 									.table-responsive
 										table.table.table-borderless.table-centered.mb-0
 											thead.thead-light
 												tr
 													th Medicine
-													th Price
 													th Quantity
 													th Total
 													th(style='width: 50px;')
@@ -41,24 +40,7 @@ block content
 											button#add-btn.btn.btn-danger(type='button', style='margin-top:30px;width:99%')
 												i.mdi.mdi-plus.mr-1
 												| Add
-									//- action buttons
-													
-								.col-lg-4
-									.border.p-3.mt-4.mt-lg-0.rounded
-										h4.header-title.mb-3 Order Summary
-										.table-responsive
-											table.table.mb-0
-												tbody
-													tr
-														th Total :
-														th
-															span#total 00.00
-															|  Dh
-										//- end table-responsive
-									//- .alert.alert-warning.mt-3(role='alert')
-									//-	| Use coupon code 
-									//-	strong UBTF25
-									//-	|  and get 25% discount !
+
 							.row.mt-4
 								//- end col
 								.col-sm-12
@@ -79,4 +61,4 @@ block content
 						button.btn.btn-light.my-2(type='button' data-dismiss='modal') OK
 	
 block scripts
-	script(src='../../app/controllers/sellController.js')
+	script(src='../../app/controllers/addOrderController.js')

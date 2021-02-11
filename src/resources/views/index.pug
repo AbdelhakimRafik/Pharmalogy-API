@@ -38,7 +38,7 @@ block content
 							.col-6
 								.text-right
 									h3.text-dark.mt-1
-										span(data-plugin='counterup') 127
+										span#today-sales(data-plugin='counterup') 0
 									p.text-muted.mb-1.text-truncate Today's Sales
 
 				.col-md-4
@@ -50,7 +50,7 @@ block content
 							.col-6
 								.text-right
 									h3.text-dark.mt-1
-										span(data-plugin='counterup') 5
+										span(data-plugin='counterup') 0
 									p.text-muted.mb-1.text-truncate Waiting orders
 
 				.col-md-4
@@ -62,7 +62,7 @@ block content
 							.col-6
 								.text-right
 									h3.text-dark.mt-1
-										span(data-plugin='counterup') 43249
+										span(data-plugin='counterup') 8520
 										| Dh
 									p.text-muted.mb-1.text-truncate Week's sold 
 
@@ -85,21 +85,16 @@ block content
 						.widget-chart.text-center(dir='ltr')
 							#total-revenue.mt-0(data-colors='#f1556c')
 							h5.text-muted.mt-0 Total sales made today
-							h2 2043 Dh
+							h2#total-r 2043 Dh
 							p.text-muted.w-75.mx-auto.sp-line-2
 								| Revenue analytics
 							.row.mt-3
-								.col-4
-									p.text-muted.font-15.mb-1.text-truncate Target
-									h4
-										i.fe-arrow-down.text-danger.mr-1
-										| 200 Dh
-								.col-4
+								.col-6
 									p.text-muted.font-15.mb-1.text-truncate Last week
 									h4
 										i.fe-arrow-up.text-success.mr-1
 										| 5000 Dh
-								.col-4
+								.col-6
 									p.text-muted.font-15.mb-1.text-truncate Last Month
 									h4
 										i.fe-arrow-down.text-danger.mr-1
@@ -131,75 +126,15 @@ block content
 								//- item
 								a.dropdown-item(href='#') Action
 						h4.header-title.mb-3 Sales History
-						.table-responsive
-							table.table.table-borderless.table-hover.table-nowrap.table-centered.m-0
-								thead.thead-light
-									tr
-										th Medicine
-										th Currency
-										th Balance
-										th Reserved in orders
-								tbody
-									tr
-										td
-											h5.m-0.font-weight-normal Tomaslau
-											p.mb-0.text-muted
-												small Member Since 2017
-										td
-											i.mdi.mdi-currency-btc.text-primary
-											|  BTC
-										td
-											| 0.00816117 BTC
-										td
-											| 0.00097036 BTC
-									tr
-										td
-											h5.m-0.font-weight-normal Erwin E. Brown
-											p.mb-0.text-muted
-												small Member Since 2017
-										td
-											i.mdi.mdi-currency-eth.text-primary
-											|  ETH
-										td
-											| 3.16117008 ETH
-										td
-											| 1.70360009 ETH
-									tr
-										td
-											h5.m-0.font-weight-normal Margeret V. Ligon
-											p.mb-0.text-muted
-												small Member Since 2017
-										td
-											i.mdi.mdi-currency-eur.text-primary
-											|  EUR
-										td
-											| 25.08 EUR
-										td
-											| 12.58 EUR
-									tr
-										td
-											h5.m-0.font-weight-normal Jose D. Delacruz
-											p.mb-0.text-muted
-												small Member Since 2017
-										td
-											i.mdi.mdi-currency-cny.text-primary
-											|  CNY
-										td
-											| 82.00 CNY
-										td
-											| 30.83 CNY
-									tr
-										td
-											h5.m-0.font-weight-normal Luke J. Sain
-											p.mb-0.text-muted
-												small Member Since 2017
-										td
-											i.mdi.mdi-currency-btc.text-primary
-											|  BTC
-										td
-											| 2.00816117 BTC
-										td
-											| 1.00097036 BTC
+						table#datatable-history.table.table-borderless.table-hover.table-nowrap.table-centered.m-0(style="width:99%")
+							thead.thead-light
+								tr
+									th Medicine
+									th Quantity
+									th Price
+									th Date
+							tbody
+									
 				//- end col
 				.col-xl-6
 					.card-box
@@ -302,8 +237,12 @@ block scripts
 	script(src='../../assets/vendors/js/flatpickr.min.js')
 	script(src='../../assets/vendors/js/apexcharts.min.js')
 	script(src='../../assets/vendors/js/selectize.min.js')
+	
+	script(src='../../assets/vendors/js/jquery.dataTables.min.js')
+	script(src='../../assets/vendors/js/dataTables.bootstrap4.min.js')
+	script(src='../../assets/vendors/js/dataTables.buttons.min.js')
+	
 	//- Dashboar init js
 	script(src='../../assets/vendors/js/pages/dashboard.init.js')
 	//- Dashboard controller
-	script.
-		require('../../app/controllers/dashboardController.js')
+	script(src='../../app/controllers/dashboardController.js')

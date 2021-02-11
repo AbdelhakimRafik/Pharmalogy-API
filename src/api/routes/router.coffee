@@ -17,6 +17,7 @@ authController 		= require '../controllers/authController'
 usersController 	= require '../controllers/usersController'
 medecinesController = require '../controllers/medecinesController'
 salesController 	= require '../controllers/salesController'
+infoController 		= require '../controllers/infoController'
 
 # open routes
 openRouter.post '/register', authController.register
@@ -49,6 +50,12 @@ authRouter.route '/provider/all'
 authRouter.route '/sales'
 	.get salesController.salesHistory
 	.post salesController.addSale
+
+authRouter.route '/dashboard/info'
+	.get infoController.getDashboardInfo
+
+authRouter.route '/dashboard/salesTotal'
+	.get infoController.getTodaySalesTotal
 
 # export the module
 module.exports.openRouter = openRouter
