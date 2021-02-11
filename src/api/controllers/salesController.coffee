@@ -8,6 +8,20 @@
 
 db 		= require '../db/db'
 
+module.exports.salesHistory = (req, res) ->
+	# get sales from Server
+	db.query
+		sql: 'select * from `sales` s inner join `sale-medecines` sm on s.id = sm.sale inner join `medecines` m on sm.medecine = m.id where s.pharmacy = ?'
+		values: req.user.data.pharmacy
+		(err, results) ->
+			if err
+				console.log err
+				res.status(500).send
+					message: 'Server error occured'
+			else
+				res.status(200).send
+					data: results
+
 module.exports.addSale = (req, res) ->
 
 	data = req.body
@@ -19,11 +33,8 @@ module.exports.addSale = (req, res) ->
 			if(err)
 				console.log err
 			values = []
-			console.log results
 			for m of data
-				console.log m
 				values.push [results.insertId, data[m].id, data[m].quantity]
-			console.log values
 			db.query
 				sql: 'insert into `sale-medecines` (sale, medecine, quantity) values ?'
 				values: [values]

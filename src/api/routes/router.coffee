@@ -46,7 +46,8 @@ authRouter.route '/pharma/medecine/:id?'
 authRouter.route '/provider/all'
 	.get medecinesController.getAllProviders
 
-authRouter.route '/sales/add'
+authRouter.route '/sales'
+	.get salesController.salesHistory
 	.post salesController.addSale
 
 # export the module

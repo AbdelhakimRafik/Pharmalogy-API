@@ -66,5 +66,17 @@ block content
 										button#validate-btn.btn.btn-success(type='button')
 											i.mdi.mdi-cart-plus.mr-1
 											|  Validate
+											
+	#success-alert-modal.modal.fade(tabindex='-1' role='dialog' aria-hidden='true')
+		.modal-dialog.modal-sm
+			.modal-content.modal-filled.bg-success
+				.modal-body.p-4
+					.text-center
+						i.dripicons-checkmark.h1.text-white
+						h4.mt-2.text-white Well Done!
+						p.mt-3.text-white
+							| Sale has been saved successfully
+						button.btn.btn-light.my-2(type='button' data-dismiss='modal') OK
+	
 block scripts
 	script(src='../../app/controllers/sellController.js')

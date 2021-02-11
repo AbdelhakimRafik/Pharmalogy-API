@@ -47,13 +47,13 @@ $(document).ready () ->
 
 	$('#validate-btn').click (e) ->
 		$.ajax
-			url: 'http://localhost:3000/sales/add'
+			url: 'http://localhost:3000/sales'
 			headers:
 				token: do auth.getToken
 			method: "POST"
 			data: list
 			success: (res) ->
-				console.log res
+				$('#success-alert-modal').modal 'show'
 			error: (err) ->
 				console.log err
 	return
