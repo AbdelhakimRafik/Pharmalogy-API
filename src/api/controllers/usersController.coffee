@@ -43,7 +43,7 @@ module.exports.getUser = (req, res) ->
 			return res.status(403).send
 				message: 'Access denied'
 
-		# get users list
+		# get user data by it's id
 		db.query
 			sql: 'select * from users where id = ? and pharmacy = ?'
 			values: [req.query.id, req.user.data.pharmacy]
