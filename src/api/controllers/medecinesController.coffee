@@ -11,7 +11,7 @@ db 		= require '../db/db'
 module.exports.getAllPharmaMedecines = (req, res) ->
 
 	db.query
-		sql: 'select * from medecines m inner join `pharma-medecines` pm on m.id = pm.medecine where pm.pharmacy = ?'
+		sql: 'select m.*, pm.*, p.name as provider from medecines m inner join `pharma-medecines` pm on m.id = pm.medecine inner join providers p on pm.provider = p.id where pm.pharmacy = ?'
 		values: req.user.data.pharmacy
 		(err, results) ->
 			if err

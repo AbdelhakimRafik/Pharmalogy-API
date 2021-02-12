@@ -46,18 +46,18 @@ setChart = (data) ->
 			enabled: !0
 			enabledOnSeries: [ 1 ]
 		labels: [
-			'01 Feb 2021'
-			'02 Feb 2021'
-			'03 Feb 2021'
-			'04 Feb 2021'
-			'05 Feb 2021'
-			'06 Feb 2021'
-			'07 Feb 2021'
-			'08 Feb 2021'
-			'09 Feb 2021'
-			'10 Feb 2021'
-			'11 Feb 2021'
-			'12 Feb 2021'
+			'01 Feb'
+			'02 Feb'
+			'03 Feb'
+			'04 Feb'
+			'05 Feb'
+			'06 Feb'
+			'07 Feb'
+			'08 Feb'
+			'09 Feb'
+			'10 Feb'
+			'11 Feb'
+			'12 Feb'
 		]
 		xaxis:
 			type: 'datetime'
@@ -92,6 +92,25 @@ setChart = (data) ->
 		altFormat: 'F j, y'
 		defaultDate: 'today'
 
+	return
+
+setRadialChart = (percentage) ->
+	colors = [ '#f1556c' ]
+	(dataColors = $('#total-revenue').data('colors')) and (colors = dataColors.split(','))
+	options =
+		series: [ percentage.toFixed 2 ]
+		chart:
+			height: 220
+			type: 'radialBar'
+		plotOptions:
+			radialBar:
+				hollow:
+					size: '65%'
+		colors: colors
+		labels: [ 'Revenue' ]
+
+	(chart = new ApexCharts(document.querySelector('#total-revenue'), options)).render()
+
 
 $(document).ready () ->
 	# get sales
@@ -119,6 +138,7 @@ $(document).ready () ->
 		method: 'GET'
 		success: (res) ->
 			$('#total-r').text("#{res.data[0].total} Dh")
+			setRadialChart (res.data[0].total / 8500) * 100
 			return
 		error: (err) ->
 			console.log err

@@ -16,7 +16,8 @@ getSales = () ->
 				render: (data, type, row) ->
 					return "#{row['quantity'] * row['price']} Dh"
 			,
-				data: 'date'
+				render: (data, type, row) ->
+					return row['date'].split('T')[0]
 		]
 		language:
 			paginate:

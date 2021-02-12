@@ -37,88 +37,16 @@ block content
 								table#datatable-orders.table.table-borderless.table-nowrap.dt-responsive.nowrap.w-100
 									thead.thead-light
 										tr
+											th Medicine
 											th Provider
-											th Date
-											th Price
+											th Quantity
 											th Status
-											th(style='width: 85px;') Action
+											th(style='width: 120px;') Action
 									tbody
-										tr
-											td
-												h5.m-0.font-weight-normal HidalMedical
-											td
-												| Oct 15, 2020
-											td
-												| 5848.65 Dh
-											td
-												span.badge.bg-soft-warning.text-warning Upcoming
-											td
-												a.btn.btn-xs.btn-light(href='#')
-													i.mdi.mdi-pencil
-										tr
-											td
-												h5.m-0.font-weight-normal MediMaroc
-											td
-												| Oct 12, 2020
-											td
-												| 1247.25 Dh
-											td
-												span.badge.bg-soft-success.text-success Paid
-											td
-												a.btn.btn-xs.btn-light(href='#')
-													i.mdi.mdi-pencil
-										tr
-											td
-												h5.m-0.font-weight-normal DhasMaroc
-											td
-												| Oct 10, 2020
-											td
-												| 815.89 Dh
-											td
-												span.badge.bg-soft-success.text-success Paid
-											td
-												a.btn.btn-xs.btn-light(href='#')
-													i.mdi.mdi-pencil
-										tr
-											td
-												h5.m-0.font-weight-normal HidalMedical
-											td
-												| Oct 03, 2020
-											td
-												| 248.75 Dh
-											td
-												span.badge.bg-soft-danger.text-danger Overdue
-											td
-												a.btn.btn-xs.btn-light(href='#')
-													i.mdi.mdi-pencil
-										tr
-											td
-												h5.m-0.font-weight-normal HidalMedical
-											td
-												| Sep 21, 2020
-											td
-												| 978.21 Dh
-											td
-												span.badge.bg-soft-warning.text-warning Upcoming
-											td
-												a.btn.btn-xs.btn-light(href='#')
-													i.mdi.mdi-pencil
-										tr
-											td
-												h5.m-0.font-weight-normal HidalMedical
-											td
-												| Sep 15, 2020
-											td
-												| 358.10 Dh
-											td
-												span.badge.bg-soft-success.text-success Paid
-											td
-												a.btn.btn-xs.btn-light(href='#')
-													i.mdi.mdi-pencil
+									
 block scripts
 	script(src='../../assets/vendors/js/jquery.dataTables.min.js')
 	script(src='../../assets/vendors/js/dataTables.bootstrap4.min.js')
 	script(src='../../assets/vendors/js/dataTables.buttons.min.js')
 
-	script.
-		require('../../app/controllers/medecinesController.js')
+	script(src='../../app/controllers/ordersController.js')

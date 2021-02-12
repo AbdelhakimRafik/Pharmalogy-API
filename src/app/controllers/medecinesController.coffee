@@ -19,7 +19,7 @@ getMedicinesList = () ->
 				data: 'price'
 			,
 				render: (data, type, row) ->
-					return '<a class="action-icon" href=""><i class="mdi mdi-square-edit-outline" ></i></a><a class="action-icon" onclick="deleteMedicine('+row['id']+')"><i class="mdi mdi-delete"></i></a>'
+					return '<a href="#" class="action-icon" onclick="deleteMedicine('+row['id']+')"><i class="mdi mdi-delete"></i></a>'
 		]
 		language:
 			paginate:
@@ -46,6 +46,3 @@ $(document).ready () ->
 	do getMedicinesList
 
 	return
-
-
-	
