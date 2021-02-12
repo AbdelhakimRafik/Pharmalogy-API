@@ -21,6 +21,7 @@ getMedicinesList = () ->
 				render: (data, type, row) ->
 					return '<a href="#" class="action-icon" onclick="deleteMedicine('+row['id']+')"><i class="mdi mdi-delete"></i></a>'
 		]
+		ordering: false
 		language:
 			paginate:
 				previous: '<i class=\'mdi mdi-chevron-left\'>'

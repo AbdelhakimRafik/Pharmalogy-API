@@ -120,7 +120,6 @@ $(document).ready () ->
 			token: do auth.getToken
 		method: 'GET'
 		success: (res) ->
-			console.log res
 			todayDate = new Date()
 			date = new Date(res.data[0].date)
 			todaySales = if todayDate.getDate == date.getDate then res.data[0].count else 0
@@ -139,6 +138,18 @@ $(document).ready () ->
 		success: (res) ->
 			$('#total-r').text("#{res.data[0].total} Dh")
 			setRadialChart (res.data[0].total / 8500) * 100
+			return
+		error: (err) ->
+			console.log err
+			return
+
+	$.ajax
+		url: 'http://localhost:3000/order/status'
+		headers:
+			token: do auth.getToken
+		method: 'GET'
+		success: (res) ->
+			$('#waiting-orders').text(res.data[0].count)
 			return
 		error: (err) ->
 			console.log err
@@ -166,4 +177,30 @@ $(document).ready () ->
 		info: false
 		filter: false
 
+	$('#datatable-orders').DataTable
+		ajax:
+			url: 'http://localhost:3000/orders'
+			method: 'GET'
+			headers:
+				token: do auth.getToken
+		columns: [
+				data: 'name'
+			,
+				data: 'labo'
+			,
+				data: 'quantity'
+			,
+				render: (data, type, row) ->
+
+					if row['status'] == 1
+						return '<span class="badge bg-soft-warning text-warning">Waiting for ordering</span>'
+					else if row['status'] == 2
+						return '<span class="badge" style="color:#4d7cff;background:#1048ff40">Waiting for receiving</span>'
+					else if row['status'] == 3
+						return '<span class="badge bg-soft-success text-success">Received</span>'
+		]
+		paging: false
+		ordering: false
+		info: false
+		filter: false
 	return

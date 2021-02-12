@@ -50,7 +50,7 @@ block content
 							.col-6
 								.text-right
 									h3.text-dark.mt-1
-										span(data-plugin='counterup') 0
+										span#waiting-orders(data-plugin='counterup') 0
 									p.text-muted.mb-1.text-truncate Waiting orders
 
 				.col-md-4
@@ -149,88 +149,14 @@ block content
 								//- item
 								a.dropdown-item(href='#') Action
 						h4.header-title.mb-3 Last orders
-						.table-responsive
-							table.table.table-borderless.table-nowrap.table-hover.table-centered.m-0
-								thead.thead-light
-									tr
-										th Provider
-										th Date
-										th Payouts
-										th Status
-										th Action
-								tbody
-									tr
-										td
-											h5.m-0.font-weight-normal HidalMedical
-										td
-											| Oct 15, 2020
-										td
-											| 5848.65 Dh
-										td
-											span.badge.bg-soft-warning.text-warning Upcoming
-										td
-											a.btn.btn-xs.btn-light(href='#')
-												i.mdi.mdi-pencil
-									tr
-										td
-											h5.m-0.font-weight-normal MediMaroc
-										td
-											| Oct 12, 2020
-										td
-											| 1247.25 Dh
-										td
-											span.badge.bg-soft-success.text-success Paid
-										td
-											a.btn.btn-xs.btn-light(href='#')
-												i.mdi.mdi-pencil
-									tr
-										td
-											h5.m-0.font-weight-normal DhasMaroc
-										td
-											| Oct 10, 2020
-										td
-											| 815.89 Dh
-										td
-											span.badge.bg-soft-success.text-success Paid
-										td
-											a.btn.btn-xs.btn-light(href='#')
-												i.mdi.mdi-pencil
-									tr
-										td
-											h5.m-0.font-weight-normal HidalMedical
-										td
-											| Oct 03, 2020
-										td
-											| 248.75 Dh
-										td
-											span.badge.bg-soft-danger.text-danger Overdue
-										td
-											a.btn.btn-xs.btn-light(href='#')
-												i.mdi.mdi-pencil
-									tr
-										td
-											h5.m-0.font-weight-normal HidalMedical
-										td
-											| Sep 21, 2020
-										td
-											| 978.21 Dh
-										td
-											span.badge.bg-soft-warning.text-warning Upcoming
-										td
-											a.btn.btn-xs.btn-light(href='#')
-												i.mdi.mdi-pencil
-									tr
-										td
-											h5.m-0.font-weight-normal HidalMedical
-										td
-											| Sep 15, 2020
-										td
-											| 358.10 Dh
-										td
-											span.badge.bg-soft-success.text-success Paid
-										td
-											a.btn.btn-xs.btn-light(href='#')
-												i.mdi.mdi-pencil
+						table#datatable-orders.table.table-borderless.table-nowrap.table-hover.table-centered.m-0(style="width:99%")
+							thead.thead-light
+								tr
+									th Medicine
+									th Provider
+									th Quantity
+									th Status
+							tbody
 
 
 block scripts

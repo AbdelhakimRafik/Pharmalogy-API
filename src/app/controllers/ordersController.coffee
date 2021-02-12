@@ -19,9 +19,9 @@ $(document).ready () ->
 					if row['status'] == 1
 						return '<span class="badge bg-soft-warning text-warning">Waiting for ordering</span>'
 					else if row['status'] == 2
-						return '<span class="badge bg-soft-success text-success">Waiting for receiving</span>'
+						return '<span class="badge" style="color:#4d7cff;background:#1048ff40">Waiting for receiving</span>'
 					else if row['status'] == 3
-						return '<span class="badge bg-soft-warning text-warning">Received</span>'
+						return '<span class="badge bg-soft-success text-success">Received</span>'
 			,
 				render: (data, type, row) ->
 					return '<select class="form-control select-action" data-id="'+row['id']+'"><option>Select action</option><option value="2">Ordered</option><option value="3">Received</option></select>'
@@ -30,6 +30,8 @@ $(document).ready () ->
 			paginate:
 				previous: '<i class=\'mdi mdi-chevron-left\'>'
 				next: '<i class=\'mdi mdi-chevron-right\'>'
+				
+		ordering: false
 
 		drawCallback: () ->
 			$('.select-action').change (e) ->
@@ -45,6 +47,6 @@ $(document).ready () ->
 						id: order
 						status: status
 					success: (res) ->
-						console.log res
+						do $('#datatable-orders').DataTable().ajax.reload
 					error: (err) ->
 						console.log err

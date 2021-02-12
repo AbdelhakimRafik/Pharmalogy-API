@@ -24,6 +24,8 @@ getSales = () ->
 				previous: '<i class=\'mdi mdi-chevron-left\'>'
 				next: '<i class=\'mdi mdi-chevron-right\'>'
 
+		ordering: false
+
 $(document).ready () ->
 
 	do getSales

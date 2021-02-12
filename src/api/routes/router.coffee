@@ -63,6 +63,7 @@ authRouter.route '/orders'
 	.post ordersController.addOrders
 
 authRouter.route '/order/status'
+	.get ordersController.getWaitingOrders
 	.post ordersController.setOrderStatus
 
 # export the module

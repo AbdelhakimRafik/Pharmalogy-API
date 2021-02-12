@@ -11,7 +11,7 @@ db 		= require '../db/db'
 module.exports.salesHistory = (req, res) ->
 	# get sales from Server
 	db.query
-		sql: 'select * from `sales` s inner join `sale-medecines` sm on s.id = sm.sale inner join `medecines` m on sm.medecine = m.id where s.pharmacy = ?'
+		sql: 'select * from `sales` s inner join `sale-medecines` sm on s.id = sm.sale inner join `medecines` m on sm.medecine = m.id where s.pharmacy = ? order by date desc'
 		values: req.user.data.pharmacy
 		(err, results) ->
 			if err

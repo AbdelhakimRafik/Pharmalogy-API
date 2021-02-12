@@ -29,7 +29,7 @@ module.exports.addOrders = (req, res) ->
 module.exports.getAllOrders = (req, res) ->
 
 	db.query
-		sql: 'select *, c.id from commandes c inner join medecines m on c.medecine = m.id order by c.created_at desc'
+		sql: 'select *, c.id from commandes c inner join medecines m on c.medecine = m.id order by c.id desc'
 		(err, results) ->
 			if(err)
 				console.log err
@@ -52,5 +52,18 @@ module.exports.setOrderStatus = (req, res) ->
 					message: 'Server error occured'
 			else
 				res.status(200).send
-					data: 'Order status has been updated successfully'
+					message: 'Order status has been updated successfully'
+			return
+
+module.exports.getWaitingOrders = (req, res) ->
+	db.query
+		sql: 'select count(*) as count from commandes where status = 1'
+		(err, results) ->
+			if(err)
+				console.log err
+				res.status(500).send
+					message: 'Server error occured'
+			else
+				res.status(200).send
+					data: results
 			return
