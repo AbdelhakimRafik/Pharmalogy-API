@@ -19,6 +19,9 @@ getMedicinesList = () ->
 				data: 'price'
 			,
 				render: (data, type, row) ->
+					return row['exp_date'].split('T')[0]
+			,
+				render: (data, type, row) ->
 					return '<a href="#" class="action-icon" onclick="deleteMedicine('+row['id']+')"><i class="mdi mdi-delete"></i></a>'
 		]
 		ordering: false
