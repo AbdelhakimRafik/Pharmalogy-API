@@ -1,29 +1,30 @@
 {
- "name": "pharmalogy",
- "version": "1.0.0",
- "description": "Application to manage pharmacies",
- "main": "index.js",
- "scripts": {
-  "start": "electron ./build/",
-  "serv": "node ./build/api/",
-  "test": "echo \"Error: no test specified\" && exit 1"
- },
- "author": "Abdelhakim RAFIK",
- "license": "ISC",
- "devDependencies": {
-  "del": "^6.0.0",
-  "gulp": "^4.0.2",
-  "gulp-coffeescript": "0.0.15",
-  "gulp-sass": "^4.1.0",
-  "gulp-webp": "^4.0.1"
- },
- "dependencies": {
-  "bcryptjs": "^2.4.3",
-  "electron": "^11.2.1",
-  "electron-pug": "^2.0.0",
-  "express": "^4.17.1",
-  "got": "^11.8.1",
-  "jsonwebtoken": "^8.5.1",
-  "mysql": "^2.18.1"
- }
+  "name": "pharmalogy-api",
+  "version": "1.0.0",
+  "description": "Pharmalogy API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbdelhakimRafik/Pharmalogy-API.git"
+  },
+  "keywords": [
+    "Pharmalogy"
+  ],
+  "author": "Abdelhakim RAFIK",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AbdelhakimRafik/Pharmalogy-API/issues"
+  },
+  "homepage": "https://github.com/AbdelhakimRafik/Pharmalogy-API#readme",
+  "devDependencies": {
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-coffeescript": "0.0.15"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
