@@ -4,7 +4,7 @@
 	"description": "Pharmalogy API",
 	"main": "index.js",
 	"scripts": {
-		"start": "node ./dist/index.js"
+		"start": "nodemon ./dist/index.js"
 	},
 	"repository": {
 		"type": "git",
@@ -25,8 +25,11 @@
 		"gulp-coffeescript": "0.0.15"
 	},
 	"dependencies": {
+		"bcrypt": "^5.0.1",
 		"express": "^4.17.1",
+		"jsonwebtoken": "^8.5.1",
 		"mysql2": "^2.2.5",
-		"sequelize": "^6.5.0"
+		"sequelize": "^6.5.0",
+		"validatorjs": "^3.22.1"
 	}
 }

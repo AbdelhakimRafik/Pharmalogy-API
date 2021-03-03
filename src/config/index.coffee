@@ -9,19 +9,19 @@
 # return system configuration
 module.exports =
 
-    server:
-        host: "localhost"
-        port: 8000
+	server:
+		host: "localhost"
+		port: 8000
 
-    db:
-        dialect: "mysql"
-        host: "localhost"
-        username: "root"
-        password: ""
-        dbName: "pharmalogy"
+	db:
+		dialect: "mysql"
+		host: "localhost"
+		username: "root"
+		password: ""
+		dbName: "pharmalogy"
 
-    jwb:
-        secret: "this is my secret"
+	jwt:
+		secret: "this is my secret"
 
-    bcrypt:
-        key: "this is my key"
+	bcrypt:
+		salt: 10
