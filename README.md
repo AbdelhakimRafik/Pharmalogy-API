@@ -19,14 +19,14 @@ Clone and install the dependencies and devDependencies and start the server.
 ```sh
 cd Pharmalogy-api
 npm i
-npm serve
+npm start
 ```
 
 For production environments...
 
 ```sh
 npm i --production
-NODE_ENV=production npm serve
+NODE_ENV=production npm start
 ```
 
 ## Plugins
@@ -36,11 +36,11 @@ Instructions on how to use them in your own application are linked below.
 
 | Plugin | README |
 | ------ | ------ |
-| ExpressJS | [https://expressjs.com/en/starter/installing.html][PlDb] |
-| Sequelize | [https://sequelize.org/master/][PlGh] |
-| Mysql | [https://www.npmjs.com/package/mysql][PlGh] |
-| JsonWebToken | [https://www.npmjs.com/package/jsonwebtoken][PlGd] |
-| Bcrypt | [https://www.npmjs.com/package/bcrypt][PlOd] |
+| ExpressJS | [https://expressjs.com/en/starter/installing.html] |
+| Sequelize | [https://sequelize.org/master/] |
+| Mysql2 | [https://www.npmjs.com/package/mysql2] |
+| JsonWebToken | [https://www.npmjs.com/package/jsonwebtoken] |
+| Bcrypt | [https://www.npmjs.com/package/bcrypt] |
 
 ## Development
 
@@ -60,7 +60,7 @@ gulp
 Second Tab:
 
 ```sh
-npm serve
+npm start
 ```
 
 #### Building for source
