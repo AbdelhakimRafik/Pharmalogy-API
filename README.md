@@ -1,6 +1,6 @@
 # Pharmalogy API
 
-Pharmacology API is a RESTFUL API that implement different functionalities to manage and organize pharmacies work.
+Pharmalogy API is a RESTFUL API that implement different functionalities to manage and organize pharmacies work.
 
 ## Features
 
