@@ -64,7 +64,7 @@ module.exports.signin = (req, res) ->
 		# check user password
 		if bcrypt.compareSync req.body.password, user.password
 			# create token
-			token = jwt.sign id:user.id, config.jwt.secret
+			token = jwt.sign id_uti:user.id_uti, config.jwt.secret
 			# send response
 			res.status(200).json
 				auth: true

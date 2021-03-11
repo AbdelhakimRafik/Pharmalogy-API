@@ -23,7 +23,7 @@ module.exports = (req, res, next) ->
 				message: "Access denied"
 		else
 			# check database for user
-			user = await User.findByPk decoded.id
+			user = await User.findByPk decoded.id_uti
 			unless user
 				res.status(400).json
 					message: "Unauthorized token"

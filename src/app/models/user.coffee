@@ -11,6 +11,9 @@
 
 module.exports = User = sequelize.define 'User',
 
+	id_uti:
+		type:DataTypes.INTEGER
+		primaryKey: true
 	firstName:
 		type: DataTypes.STRING
 		allowNull: false
@@ -33,5 +36,5 @@ module.exports = User = sequelize.define 'User',
 		type: DataTypes.STRING
 	role:
 		type: DataTypes.BIGINT
-	pharmacy:
+	id_pharma:
 		type: DataTypes.BIGINT

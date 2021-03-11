@@ -11,6 +11,10 @@ router 		= do Router
 
 authMiddleware = require '../app/middlewares/authMiddleware'
 
+clientController = require '../app/controllers/clientController'
+
+pharmacyController= require '../app/controllers/pharmacyController'
+
 # protect router with authentication middleware
 router.use authMiddleware
 
@@ -20,3 +24,7 @@ module.exports = router
 router.get '/users', (req, res) ->
 	console.log req.user
 	res.send "ok"
+
+router.post '/addClient', clientController.addClient
+
+router.post '/addPharmacy', pharmacyController.addPharmacy
