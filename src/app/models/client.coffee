@@ -22,5 +22,15 @@ module.exports = Client = sequelize.define 'Client',
 		type: DataTypes.STRING 10
 	id_pharma:
 		type: DataTypes.BIGINT
+	sexe:
+		type: DataTypes.STRING
+	MI_type:
+		type: DataTypes.STRING
+	MI_number:
+		type: DataTypes.DECIMAL 15, 0
+	adresse:
+		type :DataTypes.STRING
+	autres:
+		type: DataTypes.STRING
 },
 {updatedAt : false}

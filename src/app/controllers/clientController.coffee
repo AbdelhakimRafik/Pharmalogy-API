@@ -30,6 +30,6 @@ module.exports.addClient = (req, res) ->
 				res.status(200).json
 					message: "client created successfully"
 
-		else res.stats(401).json
+		else res.status(401).json
 			message: "CIN Client already exists "
 	return
