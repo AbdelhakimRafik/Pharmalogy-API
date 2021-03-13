@@ -2,7 +2,7 @@
 { DataTypes } 	= require 'sequelize'
 { sequelize } 	= require '../../database'
 
-module.exports = Client = sequelize.define 'Client',
+module.exports = Client = sequelize.define 'client',
 {
 	idclt:
 		type :DataTypes.BIGINT

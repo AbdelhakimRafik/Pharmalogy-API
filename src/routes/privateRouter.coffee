@@ -25,6 +25,11 @@ router.get '/users', (req, res) ->
 	console.log req.user
 	res.send "ok"
 
+router.get '/getClient', clientController.getClient
+
+router.get '/getAllClient', clientController.getAllClient
+	
+
 router.post '/addClient', clientController.addClient
 
 router.post '/addPharmacy', pharmacyController.addPharmacy
