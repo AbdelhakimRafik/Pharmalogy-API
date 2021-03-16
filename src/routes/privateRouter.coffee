@@ -11,12 +11,12 @@ router 		= do Router
 
 authMiddleware = require '../app/middlewares/authMiddleware'
 
+userController = require '../app/controllers/userController'
+
 # protect router with authentication middleware
 router.use authMiddleware
 
 # export router
 module.exports = router
 
-router.get '/users', (req, res) ->
-	console.log req.user
-	res.send "ok"
+router.get '/user/:id', userController.getUserById
