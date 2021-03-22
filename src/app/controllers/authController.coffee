@@ -12,7 +12,40 @@ jwt			= require 'jsonwebtoken'
 config 		= require '../../config'
 User 		= require '../models/user'
 
+###
+	@api {post} /api/signup Registration
+	@apiName SignUp
+	@apiGroup User
+	@apiPermission public
+	@apiDescription
+		Register new given user if not exist.
 
+	@apiParam {String} firstName User first name.
+	@apiParam {String} lastName User last name.
+	@apiParam {String} email User email addresse.
+	@apiParam {String} password User password.
+	@apiParam {String{10}} [phone] User number phone.
+	@apiParam {String} [city] User city name.
+	@apiParam {String} [country] User country name.
+
+	@apiSuccessExample {json} Success-Response:
+		HTTP/1.1 200
+		{
+			"message": "User created successfully"
+		}
+	@apiErrorExample {json} Error-Email-exists
+		HTTP/1.1 401
+		{
+			"message": "Email already exists"
+		}
+	@apiErrorExample {json} Error-Data
+		HTTP/1.1 400
+		{
+			"message": "Data errors"
+			"errors": errors list
+			"errorCount": number of errors
+		}
+###
 module.exports.signup = (req, res) ->
 
 	# user validation rules
@@ -55,6 +88,34 @@ module.exports.signup = (req, res) ->
 				message: "Email already exists"	
 	return
 
+###
+	@api {post} /api/signin Authentification
+	@apiName SignIn
+	@apiGroup User
+	@apiPermission public
+	@apiDescription
+		Authentify a user with his email and password, and return a token.
+
+	@apiParam {String} email User email addresse.
+	@apiParam {String} password User password.
+
+	@apiSuccessExample {json} Success-Response:
+		HTTP/1.1 200
+		{
+			"auth": true
+			"message": "User authenticated successfully"
+			"token": token
+			"user":
+				"firstName": user firstName
+				"lastName": user lastName
+		}
+	@apiErrorExample {json} Error-Response:
+		HTTP/1.1 401
+		{
+			"auth": false
+			"message": "Email or password incorrect"
+		}
+###
 module.exports.signin = (req, res) ->
 
 	# find user

@@ -31,5 +31,10 @@
 		"mysql2": "^2.2.5",
 		"sequelize": "^6.5.0",
 		"validatorjs": "^3.22.1"
+	},
+	"apidoc": {
+		"name": "PHARMALOGY - API",
+		"title": "Pharmalogy API Documentation",
+		"sampleUrl": "http://localhost:8000"
 	}
 }
