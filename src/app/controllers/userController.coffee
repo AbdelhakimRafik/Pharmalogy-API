@@ -1,6 +1,7 @@
 
 User = require '../models/user'
 
+
 module.exports.getUserById = (req, res) ->
 
 	# get user from database

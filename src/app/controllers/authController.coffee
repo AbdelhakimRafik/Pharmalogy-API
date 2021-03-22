@@ -28,22 +28,22 @@ User 		= require '../models/user'
 	@apiParam {String} [city] User city name.
 	@apiParam {String} [country] User country name.
 
-	@apiSuccessExample {json} Success-Response:
+	@apiSuccessExample {json} Success-Response
 		HTTP/1.1 200
 		{
-			"message": "User created successfully"
+		    "message": "User created successfully"
 		}
 	@apiErrorExample {json} Error-Email-exists
 		HTTP/1.1 401
 		{
-			"message": "Email already exists"
+		    "message": "Email already exists"
 		}
 	@apiErrorExample {json} Error-Data
 		HTTP/1.1 400
 		{
-			"message": "Data errors"
-			"errors": errors list
-			"errorCount": number of errors
+		    "message": "Data errors"
+		    "errors": errors list
+		    "errorCount": number of errors
 		}
 ###
 module.exports.signup = (req, res) ->
@@ -99,21 +99,21 @@ module.exports.signup = (req, res) ->
 	@apiParam {String} email User email addresse.
 	@apiParam {String} password User password.
 
-	@apiSuccessExample {json} Success-Response:
+	@apiSuccessExample {json} Success-Response
 		HTTP/1.1 200
 		{
-			"auth": true
-			"message": "User authenticated successfully"
-			"token": token
-			"user":
-				"firstName": user firstName
-				"lastName": user lastName
+		    "auth": true
+		    "message": "User authenticated successfully"
+		    "token": token
+		    "user":
+		        "firstName": user firstName
+		        "lastName": user lastName
 		}
-	@apiErrorExample {json} Error-Response:
+	@apiErrorExample {json} Error-Response
 		HTTP/1.1 401
 		{
-			"auth": false
-			"message": "Email or password incorrect"
+		    "auth": false
+		    "message": "Email or password incorrect"
 		}
 ###
 module.exports.signin = (req, res) ->

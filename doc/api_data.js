@@ -34,8 +34,8 @@ define({ "api": [
     "success": {
       "examples": [
         {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200\n{\n\"auth\": true\n\"message\": \"User authenticated successfully\"\n\"token\": token\n\"user\":\n\"firstName\": user firstName\n\"lastName\": user lastName\n}",
+          "title": "Success-Response",
+          "content": "HTTP/1.1 200\n{\n    \"auth\": true\n    \"message\": \"User authenticated successfully\"\n    \"token\": token\n    \"user\":\n        \"firstName\": user firstName\n        \"lastName\": user lastName\n}",
           "type": "json"
         }
       ]
@@ -43,8 +43,8 @@ define({ "api": [
     "error": {
       "examples": [
         {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 401\n{\n\"auth\": false\n\"message\": \"Email or password incorrect\"\n}",
+          "title": "Error-Response",
+          "content": "HTTP/1.1 401\n{\n    \"auth\": false\n    \"message\": \"Email or password incorrect\"\n}",
           "type": "json"
         }
       ]
@@ -129,8 +129,8 @@ define({ "api": [
     "success": {
       "examples": [
         {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200\n{\n\"message\": \"User created successfully\"\n}",
+          "title": "Success-Response",
+          "content": "HTTP/1.1 200\n{\n    \"message\": \"User created successfully\"\n}",
           "type": "json"
         }
       ]
@@ -139,12 +139,12 @@ define({ "api": [
       "examples": [
         {
           "title": "Error-Email-exists",
-          "content": "HTTP/1.1 401\n{\n\"message\": \"Email already exists\"\n}",
+          "content": "HTTP/1.1 401\n{\n    \"message\": \"Email already exists\"\n}",
           "type": "json"
         },
         {
           "title": "Error-Data",
-          "content": "HTTP/1.1 400\n{\n\"message\": \"Data errors\"\n\"errors\": errors list\n\"errorCount\": number of errors\n}",
+          "content": "HTTP/1.1 400\n{\n    \"message\": \"Data errors\"\n    \"errors\": errors list\n    \"errorCount\": number of errors\n}",
           "type": "json"
         }
       ]
