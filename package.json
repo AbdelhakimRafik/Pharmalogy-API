@@ -22,7 +22,8 @@
 	"devDependencies": {
 		"del": "^6.0.0",
 		"gulp": "^4.0.2",
-		"gulp-coffeescript": "0.0.15"
+		"gulp-coffeescript": "0.0.15",
+		"sequelize-cli": "^6.2.0"
 	},
 	"dependencies": {
 		"bcrypt": "^5.0.1",
