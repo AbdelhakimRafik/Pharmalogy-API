@@ -1,3 +1,10 @@
+###
+ * @author 		Abdelhakim RAFIK
+ * @version 	v1.0.1
+ * @license 	MIT License
+ * @copyright 	Copyright (c) 2021 Abdelhakim RAFIK
+ * @date 		Mar 2021
+###
 
 ###
 	Create users table migration
@@ -30,10 +37,14 @@ module.exports =
 			country:
 				type: Sequelize.STRING
 			avatar:
-				type: Sequelize.STRING
+				type: Sequelize.INTEGER
+				references:
+					model: 'files'
+					key: 'id'
 			role:
 				allowNull: false
-				type: Sequelize.INTEGER
+				type: Sequelize.STRING
+				defaultValue: 'user'
 			pharmacy:
 				type: Sequelize.INTEGER
 				references:

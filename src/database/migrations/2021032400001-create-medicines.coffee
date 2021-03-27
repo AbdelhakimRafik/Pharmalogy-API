@@ -7,12 +7,12 @@
 ###
 
 ###
-	Create pharmacies table migration
+	Create medicines table migration
 ###
 
 module.exports =
 	up: (queryInterface, Sequelize) ->
-		queryInterface.createTable 'Pharmacies',
+		queryInterface.createTable 'Medicines',
 			id:
 				allowNull: false
 				autoIncrement: true
@@ -21,30 +21,16 @@ module.exports =
 			name:
 				allowNull: false
 				type: Sequelize.STRING
-			addresse:
-				type: Sequelize.STRING
-			email:
-				type: Sequelize.STRING
-			webSite:
-				type: Sequelize.STRING
-			phone:
-				type: Sequelize.STRING 10
-			city:
+			labo:
 				allowNull: false,
 				type: Sequelize.STRING
-			country:
+			serialNumber:
 				allowNull: false,
-				type: Sequelize.STRING
-			longitude:
-				allowNull: false
-				type: Sequelize.DOUBLE
-			latitude:
-				allowNull: false
-				type: Sequelize.DOUBLE
+				type: Sequelize.INTEGER 20
 			status:
 				allowNull: false
 				type: Sequelize.BOOLEAN
-				defaultValue: false
+				defaultValue: 1
 			createdAt:
 				allowNull: false
 				type: Sequelize.DATE
@@ -53,4 +39,4 @@ module.exports =
 				type: Sequelize.DATE
 
 	down: (queryInterface, Sequelize) ->
-		queryInterface.dropTable 'Pharmacies'
+		queryInterface.dropTable 'Medicines'

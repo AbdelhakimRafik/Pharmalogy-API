@@ -1,3 +1,10 @@
+###
+ * @author 		Abdelhakim RAFIK
+ * @version 	v1.0.1
+ * @license 	MIT License
+ * @copyright 	Copyright (c) 2021 Abdelhakim RAFIK
+ * @date 		Mar 2021
+###
 
 path = require 'path'
 

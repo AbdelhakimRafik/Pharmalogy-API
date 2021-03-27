@@ -4,7 +4,8 @@
 	"description": "Pharmalogy API",
 	"main": "index.js",
 	"scripts": {
-		"start": "nodemon ./dist/index.js"
+		"start": "nodemon ./dist/index.js",
+		"build": "gulp ./"
 	},
 	"repository": {
 		"type": "git",
@@ -26,6 +27,7 @@
 		"sequelize-cli": "^6.2.0"
 	},
 	"dependencies": {
+		"accesscontrol": "^2.2.1",
 		"bcrypt": "^5.0.1",
 		"express": "^4.17.1",
 		"jsonwebtoken": "^8.5.1",

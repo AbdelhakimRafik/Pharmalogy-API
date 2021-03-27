@@ -7,44 +7,40 @@
 ###
 
 ###
-	Create pharmacies table migration
+	Create sales table migration
 ###
 
 module.exports =
 	up: (queryInterface, Sequelize) ->
-		queryInterface.createTable 'Pharmacies',
+		queryInterface.createTable 'Sales',
 			id:
 				allowNull: false
 				autoIncrement: true
 				primaryKey: true
 				type: Sequelize.INTEGER
-			name:
+			client:
 				allowNull: false
-				type: Sequelize.STRING
-			addresse:
-				type: Sequelize.STRING
-			email:
-				type: Sequelize.STRING
-			webSite:
-				type: Sequelize.STRING
-			phone:
-				type: Sequelize.STRING 10
-			city:
-				allowNull: false,
-				type: Sequelize.STRING
-			country:
-				allowNull: false,
-				type: Sequelize.STRING
-			longitude:
+				type: Sequelize.INTEGER
+				references:
+					model: 'clients'
+					key: 'id'
+			pharmacy:
 				allowNull: false
-				type: Sequelize.DOUBLE
-			latitude:
+				type: Sequelize.INTEGER
+				references:
+					model: 'pharmacies'
+					key: 'id'
+			discount:
+				type: Sequelize.INTEGER 3
+			totalPaid:
 				allowNull: false
-				type: Sequelize.DOUBLE
+				type: Sequelize.FLOAT 11, 2
+			notes:
+				type: Sequelize.TEXT
 			status:
 				allowNull: false
 				type: Sequelize.BOOLEAN
-				defaultValue: false
+				defaultValue: 1
 			createdAt:
 				allowNull: false
 				type: Sequelize.DATE
@@ -53,4 +49,4 @@ module.exports =
 				type: Sequelize.DATE
 
 	down: (queryInterface, Sequelize) ->
-		queryInterface.dropTable 'Pharmacies'
+		queryInterface.dropTable 'Sales'

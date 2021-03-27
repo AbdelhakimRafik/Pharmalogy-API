@@ -7,12 +7,12 @@
 ###
 
 ###
-	Create pharmacies table migration
+	Create providers table migration
 ###
 
 module.exports =
 	up: (queryInterface, Sequelize) ->
-		queryInterface.createTable 'Pharmacies',
+		queryInterface.createTable 'Providers',
 			id:
 				allowNull: false
 				autoIncrement: true
@@ -35,12 +35,6 @@ module.exports =
 			country:
 				allowNull: false,
 				type: Sequelize.STRING
-			longitude:
-				allowNull: false
-				type: Sequelize.DOUBLE
-			latitude:
-				allowNull: false
-				type: Sequelize.DOUBLE
 			status:
 				allowNull: false
 				type: Sequelize.BOOLEAN
@@ -53,4 +47,4 @@ module.exports =
 				type: Sequelize.DATE
 
 	down: (queryInterface, Sequelize) ->
-		queryInterface.dropTable 'Pharmacies'
+		queryInterface.dropTable 'Providers'
