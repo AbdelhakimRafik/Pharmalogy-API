@@ -6,32 +6,42 @@
  * @date 		Mar 2021
 ###
 
-{ DataTypes } 	= require 'sequelize'
+{ DataTypes, Model } 	= require 'sequelize'
 { sequelize } 	= require '../../database'
 
-module.exports = User = sequelize.define 'User',
+# create user model
+class User extends Model
 
+# initialize user model fields
+User.init
 	firstName:
-		type: DataTypes.STRING
+		type: Sequelize.STRING
 		allowNull: false
 	lastName:
-		type: DataTypes.STRING
+		type: Sequelize.STRING
 		allowNull: false
 	email:
-		type: DataTypes.STRING
+		type: Sequelize.STRING
 		allowNull: false
 	password:
-		type: DataTypes.STRING
+		type: Sequelize.STRING
 		allowNull: false
 	phone:
-		type: DataTypes.STRING 10
+		type: Sequelize.STRING 10
 	city:
-		type: DataTypes.STRING
+		type: Sequelize.STRING
 	country:
-		type: DataTypes.STRING
+		type: Sequelize.STRING
 	avatar:
-		type: DataTypes.STRING
+		type: Sequelize.INTEGER
 	role:
-		type: DataTypes.BIGINT
+		allowNull: false
+		type: Sequelize.STRING
 	pharmacy:
-		type: DataTypes.BIGINT
+		type: Sequelize.INTEGER
+	createdAt:
+		allowNull: false
+		type: Sequelize.DATE
+	updatedAt:
+		allowNull: false
+		type: Sequelize.DATE
