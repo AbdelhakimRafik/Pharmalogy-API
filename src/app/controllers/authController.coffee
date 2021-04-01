@@ -18,7 +18,7 @@ User 		= require '../models/user'
 	@apiGroup User
 	@apiPermission public
 	@apiDescription
-		Register new given user if not exist.
+		Register new user if not exist.
 
 	@apiParam {String} firstName User first name.
 	@apiParam {String} lastName User last name.
@@ -122,6 +122,8 @@ module.exports.signin = (req, res) ->
 	user = await User.findOne where: email: req.body.email
 	# user found
 	if user
+		avatar = await do user.getPharmacy
+		console.log avatar
 		# check user password
 		if bcrypt.compareSync req.body.password, user.password
 			# create token

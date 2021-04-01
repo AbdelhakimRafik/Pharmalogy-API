@@ -6,47 +6,37 @@
  * @date 		Mar 2021
 ###
 
+{ DataTypes, Model } 	= require 'sequelize'
+{ sequelize } 			= require '../../database'
+
 ###
-	Create sales table migration
+	Sale model
 ###
 
-module.exports =
-	up: (queryInterface, Sequelize) ->
-		queryInterface.createTable 'Sales',
-			id:
-				allowNull: false
-				autoIncrement: true
-				primaryKey: true
-				type: Sequelize.INTEGER
-			client:
-				allowNull: false
-				type: Sequelize.INTEGER
-				references:
-					model: 'clients'
-					key: 'id'
-			pharmacy:
-				allowNull: false
-				type: Sequelize.INTEGER
-				references:
-					model: 'pharmacies'
-					key: 'id'
-			discount:
-				type: Sequelize.INTEGER 3
-			totalPaid:
-				allowNull: false
-				type: Sequelize.FLOAT 11, 2
-			notes:
-				type: Sequelize.TEXT
-			status:
-				allowNull: false
-				type: Sequelize.BOOLEAN
-				defaultValue: 1
-			createdAt:
-				allowNull: false
-				type: Sequelize.DATE
-			updatedAt:
-				allowNull: false
-				type: Sequelize.DATE
+class Sale extends Model
 
-	down: (queryInterface, Sequelize) ->
-		queryInterface.dropTable 'Sales'
+# initialize model
+Sale.init
+	client:
+		allowNull: false
+		type: DataTypes.INTEGER
+	pharmacy:
+		allowNull: false
+		type: DataTypes.INTEGER
+	discount:
+		type: DataTypes.INTEGER 3
+	totalPaid:
+		allowNull: false
+		type: DataTypes.FLOAT 11, 2
+	notes:
+		type: DataTypes.TEXT
+	status:
+		allowNull: false
+		type: DataTypes.BOOLEAN
+		defaultValue: 1
+	createdAt:
+		allowNull: false
+		type: DataTypes.DATE
+	updatedAt:
+		allowNull: false
+		type: DataTypes.DATE

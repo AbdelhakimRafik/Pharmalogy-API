@@ -6,36 +6,26 @@
  * @date 		Mar 2021
 ###
 
+{ DataTypes, Model } 	= require 'sequelize'
+{ sequelize } 			= require '../../database'
+
 ###
-	Create sale attachments table migration
+	Sale attachment model
 ###
 
-module.exports =
-	up: (queryInterface, Sequelize) ->
-		queryInterface.createTable 'Sale-attachments',
-			id:
-				allowNull: false
-				autoIncrement: true
-				primaryKey: true
-				type: Sequelize.INTEGER
-			sale:
-				allowNull: false
-				type: Sequelize.INTEGER
-				references:
-					model: 'sales'
-					key: 'id'
-			file:
-				allowNull: false
-				type: Sequelize.INTEGER
-				references:
-					model: 'files'
-					key: 'id'
-			createdAt:
-				allowNull: false
-				type: Sequelize.DATE
-			updatedAt:
-				allowNull: false
-				type: Sequelize.DATE
+class SaleAttachment extends Model
 
-	down: (queryInterface, Sequelize) ->
-		queryInterface.dropTable 'Sale-attachments'
+# initialize model
+SaleAttachment.init
+	sale:
+		allowNull: false
+		type: Sequelize.INTEGER
+	file:
+		allowNull: false
+		type: Sequelize.INTEGER
+	createdAt:
+		allowNull: false
+		type: Sequelize.DATE
+	updatedAt:
+		allowNull: false
+		type: Sequelize.DATE

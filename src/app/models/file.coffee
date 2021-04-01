@@ -10,29 +10,22 @@
 { sequelize } 			= require '../../database'
 
 ###
-	Medicine model
+	Files model
 ###
 
-class Medicine extends Model
-
-# initialize model
-Medicine.init
+module.exports = File = sequelize.define 'File',
 	name:
 		allowNull: false
-		type: Sequelize.STRING
-	labo:
-		allowNull: false,
-		type: Sequelize.STRING
-	serialNumber:
-		allowNull: false,
-		type: Sequelize.INTEGER 20
-	status:
+		type: DataTypes.STRING
+	extension:
 		allowNull: false
-		type: Sequelize.BOOLEAN
-		defaultValue: 1
+		type: DataTypes.STRING 10
+	path:
+		allowNull: false
+		type: DataTypes.STRING 500
 	createdAt:
 		allowNull: false
-		type: Sequelize.DATE
+		type: DataTypes.DATE
 	updatedAt:
 		allowNull: false
-		type: Sequelize.DATE
+		type: DataTypes.DATE

@@ -6,36 +6,32 @@
  * @date 		Mar 2021
 ###
 
+{ DataTypes, Model } 	= require 'sequelize'
+{ sequelize } 			= require '../../database'
+
 ###
-	Create clients table migration
+	Client model
 ###
 
-module.exports =
-	up: (queryInterface, Sequelize) ->
-		queryInterface.createTable 'Clients',
-			id:
-				allowNull: false
-				autoIncrement: true
-				primaryKey: true
-				type: Sequelize.INTEGER
-			firstName:
-				type: Sequelize.STRING
-			lastName:
-				type: Sequelize.STRING
-			email:
-				type: Sequelize.STRING
-			phone:
-				type: Sequelize.STRING 10
-			city:
-				type: Sequelize.STRING
-			country:
-				type: Sequelize.STRING
-			createdAt:
-				allowNull: false
-				type: Sequelize.DATE
-			updatedAt:
-				allowNull: false
-				type: Sequelize.DATE
+class Client extends Model
 
-	down: (queryInterface, Sequelize) ->
-		queryInterface.dropTable 'Clients'
+# initialize model
+Client.init
+	firstName:
+		type: Sequelize.STRING
+	lastName:
+		type: Sequelize.STRING
+	email:
+		type: Sequelize.STRING
+	phone:
+		type: Sequelize.STRING 10
+	city:
+		type: Sequelize.STRING
+	country:
+		type: Sequelize.STRING
+	createdAt:
+		allowNull: false
+		type: Sequelize.DATE
+	updatedAt:
+		allowNull: false
+		type: Sequelize.DATE

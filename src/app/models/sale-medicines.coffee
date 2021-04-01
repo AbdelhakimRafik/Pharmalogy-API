@@ -6,40 +6,30 @@
  * @date 		Mar 2021
 ###
 
+{ DataTypes, Model } 	= require 'sequelize'
+{ sequelize } 			= require '../../database'
+
 ###
-	Create sale medicines table migration
+	Sale medicine model
 ###
 
-module.exports =
-	up: (queryInterface, Sequelize) ->
-		queryInterface.createTable 'Sale-medicines',
-			id:
-				allowNull: false
-				autoIncrement: true
-				primaryKey: true
-				type: Sequelize.INTEGER
-			sale:
-				allowNull: false
-				type: Sequelize.INTEGER
-				references:
-					model: 'sales'
-					key: 'id'
-			medicine:
-				allowNull: false
-				type: Sequelize.INTEGER
-				references:
-					model: 'medicines'
-					key: 'id'
-			quantity:
-				allowNull: false
-				type: Sequelize.INTEGER.UNSIGNED
-				defaultValue: 1
-			createdAt:
-				allowNull: false
-				type: Sequelize.DATE
-			updatedAt:
-				allowNull: false
-				type: Sequelize.DATE
+class SaleMedicine extends Model
 
-	down: (queryInterface, Sequelize) ->
-		queryInterface.dropTable 'Sale-medicines'
+# initialize model
+SaleMedicine.init
+	sale:
+		allowNull: false
+		type: Sequelize.INTEGER
+	medicine:
+		allowNull: false
+		type: Sequelize.INTEGER
+	quantity:
+		allowNull: false
+		type: Sequelize.INTEGER.UNSIGNED
+		defaultValue: 1
+	createdAt:
+		allowNull: false
+		type: Sequelize.DATE
+	updatedAt:
+		allowNull: false
+		type: Sequelize.DATE

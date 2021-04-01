@@ -8,52 +8,51 @@
 
 { DataTypes, Model } 	= require 'sequelize'
 { sequelize } 			= require '../../database'
-Pharmacy 				= require './pharmacy'
-File 					= require './file'
+
+User 					= require './user'
 
 ###
-	User model
+	Pharmacy model
 ###
 
-module.exports = User = sequelize.define 'User',
-	firstName:
-		type: DataTypes.STRING
+module.exports = Pharmacy = sequelize.define 'Pharmacy',
+	name:
 		allowNull: false
-	lastName:
 		type: DataTypes.STRING
-		allowNull: false
+	addresse:
+		type: DataTypes.STRING
 	email:
 		type: DataTypes.STRING
-		allowNull: false
-	password:
+	webSite:
 		type: DataTypes.STRING
-		allowNull: false
 	phone:
 		type: DataTypes.STRING 10
 	city:
+		allowNull: false,
 		type: DataTypes.STRING
 	country:
+		allowNull: false,
 		type: DataTypes.STRING
-	avatar:
-		type: DataTypes.INTEGER
-	role:
+	longitude:
 		allowNull: false
-		type: DataTypes.STRING
-		defaultValue: 'user'
-	pharmacy:
-		type: DataTypes.INTEGER
+		type: DataTypes.DOUBLE
+	latitude:
+		allowNull: false
+		type: DataTypes.DOUBLE
+	status:
+		allowNull: false
+		type: DataTypes.BOOLEAN
+		defaultValue: false
 	createdAt:
 		allowNull: false
 		type: DataTypes.DATE
 	updatedAt:
 		allowNull: false
 		type: DataTypes.DATE
+,
+	# define table name in database
+	tableName: 'pharmacies'
 
-# create user-pharmacy association
-User.belongsTo Pharmacy,
+# create pharmacy - users association
+Pharmacy.hasMany User
 	foreignKey: 'pharmacy'
-
-# create user-file association for profile picture
-User.belongsTo File,
-	foreignKey: 'avatar'
-	as: 'profilePicture'

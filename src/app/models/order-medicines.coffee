@@ -6,8 +6,11 @@
  * @date 		Mar 2021
 ###
 
+{ DataTypes, Model } 	= require 'sequelize'
+{ sequelize } 			= require '../../database'
+
 ###
-	Create order medicines table migration
+	Order medicine
 ###
 
 module.exports =

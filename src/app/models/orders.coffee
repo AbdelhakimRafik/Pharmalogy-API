@@ -6,40 +6,30 @@
  * @date 		Mar 2021
 ###
 
+{ DataTypes, Model } 	= require 'sequelize'
+{ sequelize } 			= require '../../database'
+
 ###
-	Create orders table migration
+	Order model 
 ###
 
-module.exports =
-	up: (queryInterface, Sequelize) ->
-		queryInterface.createTable 'Orders',
-			id:
-				allowNull: false
-				autoIncrement: true
-				primaryKey: true
-				type: Sequelize.INTEGER
-			user:
-				allowNull: false
-				type: Sequelize.INTEGER
-				references:
-					model: 'users'
-					key: 'id'
-			pharmacy:
-				allowNull: false,
-				type: Sequelize.INTEGER
-				references:
-					model: 'pharmacies'
-					key: 'id'
-			status:
-				allowNull: false,
-				type: Sequelize.BOOLEAN
-				defaultValue: 0
-			createdAt:
-				allowNull: false
-				type: Sequelize.DATE
-			updatedAt:
-				allowNull: false
-				type: Sequelize.DATE
+class Order extends Model
 
-	down: (queryInterface, Sequelize) ->
-		queryInterface.dropTable 'Orders'
+# initialize model
+Order.init
+	user:
+		allowNull: false
+		type: Sequelize.INTEGER
+	pharmacy:
+		allowNull: false,
+		type: Sequelize.INTEGER
+	status:
+		allowNull: false,
+		type: Sequelize.BOOLEAN
+		defaultValue: 0
+	createdAt:
+		allowNull: false
+		type: Sequelize.DATE
+	updatedAt:
+		allowNull: false
+		type: Sequelize.DATE

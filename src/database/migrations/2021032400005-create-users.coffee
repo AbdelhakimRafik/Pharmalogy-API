@@ -50,6 +50,10 @@ module.exports =
 				references:
 					model: 'pharmacies'
 					key: 'id'
+			status:
+				allowNull: false
+				type: Sequelize.BOOLEAN
+				defaultValue: true
 			createdAt:
 				allowNull: false
 				type: Sequelize.DATE
