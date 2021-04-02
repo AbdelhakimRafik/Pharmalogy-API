@@ -7,10 +7,9 @@
 ###
 
 Validator 	= require 'validatorjs'
-
 Pharmacy 	= require '../models/pharmacy'
 
-module.exports.createNew = (req, res) ->
+module.exports.create = (req, res) ->
 
 	# pharmacy data validation rules
 	validationRules =

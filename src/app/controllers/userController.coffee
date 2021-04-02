@@ -15,7 +15,8 @@ module.exports.getUserById = (req, res) ->
 	user = await User.findByPk req.params.id
 
 	# check if user found
-	if user
+	if user and user.pharmacy is req.user.pharmacy
+		console.log user
 		res.status(200).json
 			user:
 				firstName: user.firstName

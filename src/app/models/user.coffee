@@ -49,10 +49,6 @@ module.exports = User = sequelize.define 'User',
 		allowNull: false
 		type: DataTypes.DATE
 
-# create user-pharmacy association
-User.belongsTo Pharmacy,
-	foreignKey: 'pharmacy'
-
 # create user-file association for profile picture
 User.belongsTo File,
 	foreignKey: 'avatar'
