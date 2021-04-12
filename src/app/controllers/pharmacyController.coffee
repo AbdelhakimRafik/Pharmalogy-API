@@ -6,8 +6,9 @@
  * @date 		Mar 2021
 ###
 
-Validator 	= require 'validatorjs'
-Pharmacy 	= require '../models/pharmacy'
+Validator 		= require 'validatorjs'
+Pharmacy 		= require '../models/pharmacy'
+{ sequelize } 	= require '../../database'
 
 module.exports.create = (req, res) ->
 
@@ -80,3 +81,38 @@ module.exports.nameValidation = (req, res) ->
 			res.status(401).json
 				message: "Pharmacy name already exists"
 	return
+
+module.exports.getLocations = (req, res) ->
+	# "SELECT *, ( 3959 * acos( cos( radians(" . $lat . ") ) * cos( radians( lat ) ) * cos( radians( lng ) - radians(" . $lng . ") ) + sin( radians(" . $lat . ") ) * sin( radians( lat ) ) ) ) AS distance FROM your_table HAVING distance < 5";
+	#  data validation rules
+	validationRules =
+		city: 'string|required_without:location'
+		location:
+			latitude: 'numeric|required_with:longitude'
+			longitude: 'numeric|required_with:latitude'
+			range: 'numeric'
+
+	# validate request data
+	validation = new Validator req.body, validationRules
+
+	# when data error validation occured
+	unless do validation.passes
+		res.status(400).json
+			message: "Data errors"
+			errors: do validation.errors.all
+			errorCount: validation.errorCount
+	else
+		# get data from database by city name
+		if req.body.city
+			pharmacies = await Pharmacy.findAll where: city: req.body.city
+		
+		# get data from database by location range
+		else if req.body.location
+			pharmacies = await sequelize.query "SELECT *, ( 6371 * acos( cos( radians(#{req.body.location.latitude}) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(#{req.body.location.longitude}) ) + sin( radians(#{req.body.location.latitude}) ) * sin( radians( latitude ) ) ) ) AS distance FROM pharmacies HAVING distance < #{req.body.location.range}"
+
+		if pharmacies
+			res.status(200).json pharmacies
+		else
+			res.status(400).json
+				message: 'An error occured while fetching data'
+		return

@@ -54,5 +54,5 @@ module.exports = Pharmacy = sequelize.define 'Pharmacy',
 	tableName: 'pharmacies'
 
 # create pharmacy - users association
-Pharmacy.hasMany User,
-	foreignKey: 'pharmacy'
+# Pharmacy.hasMany User,
+# 	foreignKey: 'pharmacy'
