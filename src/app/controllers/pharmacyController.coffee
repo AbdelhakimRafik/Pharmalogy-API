@@ -108,6 +108,7 @@ module.exports.getLocations = (req, res) ->
 		
 		# get data from database by location range
 		else if req.body.location
+			req.body.range? = 5 # set default value if undefined
 			pharmacies = await sequelize.query "SELECT *, ( 6371 * acos( cos( radians(#{req.body.location.latitude}) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(#{req.body.location.longitude}) ) + sin( radians(#{req.body.location.latitude}) ) * sin( radians( latitude ) ) ) ) AS distance FROM pharmacies HAVING distance < #{req.body.location.range}"
 
 		if pharmacies
