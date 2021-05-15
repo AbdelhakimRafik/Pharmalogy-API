@@ -8,6 +8,7 @@
 
 express	= require 'express'
 app		= do express
+cors 	= require 'cors'
 
 config	= require './config'
 db		= require('./database')(config.db)
@@ -18,6 +19,9 @@ app.use express.urlencoded extended:true
 
 # use bodyParser for JSON
 app.use do express.json
+
+# enable cors polycies
+app.use do cors
 
 # set public routes
 app.use '/api', routes.publicRouter

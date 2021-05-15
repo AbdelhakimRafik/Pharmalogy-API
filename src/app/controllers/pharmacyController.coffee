@@ -83,7 +83,6 @@ module.exports.nameValidation = (req, res) ->
 	return
 
 module.exports.getLocations = (req, res) ->
-	# "SELECT *, ( 3959 * acos( cos( radians(" . $lat . ") ) * cos( radians( lat ) ) * cos( radians( lng ) - radians(" . $lng . ") ) + sin( radians(" . $lat . ") ) * sin( radians( lat ) ) ) ) AS distance FROM your_table HAVING distance < 5";
 	#  data validation rules
 	validationRules =
 		city: 'string|required_without:location'
