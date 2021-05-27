@@ -49,10 +49,10 @@ module.exports =
 				email: 'example@example.com'
 				webSite: 'example.com'
 				phone: '0524569875'
-				city: cities[i-1]
+				city: 'Marrakech'
 				country: 'Morocco'
-				longitude: cord[i-1].longitude
-				latitude: cord[i-1].latitude
+				longitude: cord[i-1].latitude
+				latitude: cord[i-1].longitude
 				status: 1
 				createdAt: new Date()
 				updatedAt: new Date()

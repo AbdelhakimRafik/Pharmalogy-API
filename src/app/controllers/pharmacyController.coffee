@@ -101,6 +101,7 @@ module.exports.getLocations = (req, res) ->
 			errors: do validation.errors.all
 			errorCount: validation.errorCount
 	else
+		console.log 'Validated'
 		# get data from database by city name
 		if req.body.city
 			pharmacies = await Pharmacy.findAll where: city: req.body.city
