@@ -41,6 +41,9 @@ module.exports =
 			latitude:
 				allowNull: false
 				type: Sequelize.DOUBLE
+			image:
+				allowNull: true
+				type: Sequelize.STRING
 			status:
 				allowNull: false
 				type: Sequelize.BOOLEAN

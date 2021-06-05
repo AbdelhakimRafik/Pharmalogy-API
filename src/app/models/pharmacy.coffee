@@ -39,6 +39,9 @@ module.exports = Pharmacy = sequelize.define 'Pharmacy',
 	latitude:
 		allowNull: false
 		type: DataTypes.DOUBLE
+	image:
+		allowNull: true
+		type: DataTypes.STRING
 	status:
 		allowNull: false
 		type: DataTypes.BOOLEAN
