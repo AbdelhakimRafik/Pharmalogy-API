@@ -2,14 +2,6 @@
 
 Pharmalogy API is a RESTFUL API that implement different functionalities to manage and organize pharmacies work.
 
-## Features
-
-- Lorem Ipsum is simply dummy text of the printing and typesetting
-- Lorem Ipsum is simply dummy text of the printing and typesetting
-- Lorem Ipsum is simply dummy text of the printing and typesetting
-- Lorem Ipsum is simply dummy text of the printing and typesetting
-- Lorem Ipsum is simply dummy text of the printing and typesetting
-
 ## Installation
 
 Pharmalogy API requires [Node.js](https://nodejs.org/) v10+ to run.
